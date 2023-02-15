@@ -1,0 +1,32 @@
+.header {
+	font-family: monospace;
+	padding: 10px;
+	// padding-left: 50px;
+	background: #66A7F3;
+	> nav{
+		display: flex;
+		justify-content: space-between;
+	}
+	> .searchbar{
+
+	}
+	
+}
+.main {
+	> .grid {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+		> .gridItem{
+			padding: 10px;
+			background: gray;
+			margin: 10px;
+		}
+	}
+	// > iframe {
+	// 	border: solid black 0px;
+	// 	margin: auto;
+	// 	display: block;
+	// 	box-sizing: border-box;
+	// }
+
+}
