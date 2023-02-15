@@ -8,15 +8,16 @@ import { setSyntheticTrailingComments } from 'typescript'
 //this uses public anonymous key that we don't care about, don't commit private keys to git :)
 const supabase = createClient('https://nyaajzmracvaceszghcb.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im55YWFqem1yYWN2YWNlc3pnaGNiIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NzY0MzAzODYsImV4cCI6MTk5MjAwNjM4Nn0.dSZxXpK_TKy_G-DMabaMmJ_tUbpsxIiuHAWmMKiNZno')
 
-
-
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+  // TODO: typescript types from the supabase database... 
+  // not sure what the best way to do this is. mb something built into supabase?
   const [courseData, setCourseData] = useState<Array<any> | undefined>(undefined)
   useEffect(() =>  {
     async function getCourses() {
       const response = await supabase.from('syllabase').select()
+      // TODO: learn typescript :/
       setCourseData(response.data)
       console.log(response.data)
     }
@@ -28,6 +29,7 @@ export default function Home() {
         <title>Syllabuddies</title>
         <meta name="description" content="Find a syllabus at the Colorado School of Mines" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        {/* TODO: create a favicon for Syllabuddies */}
         <link rel="icon" href="/favicon.ico" />
       </Head>
       
@@ -38,7 +40,9 @@ export default function Home() {
         </nav>
       </header>
       <main className={styles.main}>
+        {/* TODO: add and format search bar here */}
         <div className={styles.grid}>
+          {/* TODO: show skeleton screen before content is loaded */}
           {courseData?.map(course => (
           <div className={styles.gridItem}>
             <h4>{course["Course Number"]}</h4>
