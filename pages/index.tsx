@@ -19,8 +19,14 @@ export default function Home() {
     return response.data as Array<any>
   }
   const { isLoading, error, data: coursesData } = useQuery(
-    "courseData",
-    () => fetchCourses(),
+    {
+      queryKey: "courseData", 
+      queryFn: () => fetchCourses(),
+      refetchOnWindowFocus: false, 
+      staleTime: 1000 * 60 * 60 * 3, 
+      cacheTime: 1000 * 60 * 60 * 3  
+      //it will only refetch if the page is open for 3 hours
+    }
   );
   return (
     <>
