@@ -11,60 +11,72 @@ import { useQuery } from "react-query";
 import { fetchCourses } from '@/fetch-functions';
 const inter = Inter({ subsets: ['latin'] })
 
-function isSearchResult(course: any, rawSearch: string, searchParams: any = {"searchName": true, "searchNumber": true, "searchProf": false}) {
-  const [courseName, courseNumber, search] = [
-    course["Course Name"].toLowerCase(),
-    course["Course Number"].toLowerCase(),
-    rawSearch.toLowerCase()
-  ]
-  if(search == "") return true;
-  if(searchParams["searchName"] && courseName.includes(search)) return true;
-  if(searchParams["searchNumber"] && courseNumber.replace(" ", "").includes(search)) return true;
-  return false;
+function isSearchResult(course: any, rawSearch: string, 
+	searchParams: any = [
+		{ param : "Course Name", 		enabled: true  },
+		{ param : "Course Number", 	enabled: true  },
+		{ param : "Professor",			enabled: false }	]) {
+	// if search is empty, return true
+	if (rawSearch == "") return true;
+	const search = rawSearch.toLowerCase();
+	// remove disabled search params
+	searchParams = searchParams.filter( (searchItem: any) => searchItem.enabled);
+	// grab course data for each search param
+	searchParams = searchParams.map( (searchItem: any) => (
+		{...searchItem, data : course[searchItem?.param]?.toLowerCase()}
+	))
+	// if Course Number is an enabled search param, add a search param without spaces
+	if (searchParams.some( (searchItem: any) => searchItem.param == "Course Number")) {
+		searchParams.push({
+			param: "Course Number", enabled: true, 
+			data: course["Course Number"].replace(" ", "").toLowerCase()
+		})
+	}
+	return searchParams.some( (searchItem: any) => searchItem.data?.includes(search) );
 }
 
 export default function Home() {
-  const [bigSearch, setBigSearch] = useState<string>("");
-  const { isLoading, error, data: coursesData } = useQuery(
-    {
-      queryKey: "courseData", 
-      queryFn: () => fetchCourses(),
-      refetchOnWindowFocus: false, 
-      staleTime: 1000 * 60 * 60 * 3, 
-      cacheTime: 1000 * 60 * 60 * 3  
-      //it will only refetch if the page is open for 3 hours
-    }
-  );
-  console.log(bigSearch)
-  return (
-    <>
-      <Head>
-        <title>Syllabuddies</title>
-        <meta name="description" content="Find a syllabus at the Colorado School of Mines" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        {/* TODO: create a favicon for Syllabuddies */}
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      
-      <Header/>
-      <main className={styles.main}>
-        <div className={styles.searchContainer}>
-          <input
-            value={bigSearch}
-            onChange={e => setBigSearch(e.target.value)}
-          />
-        </div>
-        <div className={styles.grid}>
-          {/* TODO: show skeleton screen before content is loaded */}
-          {coursesData?.map(course => (
-            isSearchResult(course, bigSearch) ?
-          (<Link href={`syllabus?id=${course["id"]}`} className={styles.gridItem}>
-              <h4>{course["Course Number"]}</h4>
-              {course["Course Name"]}
-          </Link>) : ""
-          ))}
-        </div>
-      </main>
-    </>
-  )
+	const [bigSearch, setBigSearch] = useState<string>("");
+	const { isLoading, error, data: coursesData } = useQuery(
+		{
+			queryKey: "courseData", 
+			queryFn: () => fetchCourses(),
+			refetchOnWindowFocus: false, 
+			staleTime: 1000 * 60 * 60 * 3, 
+			cacheTime: 1000 * 60 * 60 * 3  
+			//it will only refetch if the page is open for 3 hours
+		}
+	);
+	console.log(bigSearch)
+	return (
+		<>
+			<Head>
+				<title>Syllabuddies</title>
+				<meta name="description" content="Find a syllabus at the Colorado School of Mines" />
+				<meta name="viewport" content="width=device-width, initial-scale=1" />
+				{/* TODO: create a favicon for Syllabuddies */}
+				<link rel="icon" href="/favicon.ico" />
+			</Head>
+			
+			<Header/>
+			<main className={styles.main}>
+				<div className={styles.searchContainer}>
+					<input
+						value={bigSearch}
+						onChange={e => setBigSearch(e.target.value)}
+					/>
+				</div>
+				<div className={styles.grid}>
+					{/* TODO: show skeleton screen before content is loaded */}
+					{coursesData?.map(course => (
+						isSearchResult(course, bigSearch) ?
+					(<Link href={`syllabus?id=${course["id"]}`} className={styles.gridItem}>
+							<h4>{course["Course Number"]}</h4>
+							{course["Course Name"]}
+					</Link>) : ""
+					))}
+				</div>
+			</main>
+		</>
+	)
 }
