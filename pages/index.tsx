@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import Link from 'next/link'
 import { Inter } from '@next/font/google'
 import styles from '@/styles/Home.module.scss'
 import { createClient } from '@supabase/supabase-js'
@@ -13,12 +14,12 @@ const inter = Inter({ subsets: ['latin'] })
 export default function Home() {
   // TODO: typescript types from the supabase database... 
   // not sure what the best way to do this is. mb something built into supabase?
-  const [courseData, setCourseData] = useState<Array<any> | undefined>(undefined)
+  const [coursesData, setCoursesData] = useState<Array<any> | undefined>(undefined)
   useEffect(() =>  {
     async function getCourses() {
       const response = await supabase.from('syllabase').select()
       // set course data to the response data and use typecasting to make typescript happy
-      setCourseData(response.data as Array<any>)
+      setCoursesData(response.data as Array<any>)
     }
     getCourses();
   },[])
@@ -42,11 +43,11 @@ export default function Home() {
         {/* TODO: add and format search bar here */}
         <div className={styles.grid}>
           {/* TODO: show skeleton screen before content is loaded */}
-          {courseData?.map(course => (
-          <div className={styles.gridItem}>
-            <h4>{course["Course Number"]}</h4>
-            {course["Course Name"]}
-            </div>
+          {coursesData?.map(course => (
+          <Link href={`syllabus?id=${course["id"]}`} className={styles.gridItem}>
+              <h4>{course["Course Number"]}</h4>
+              {course["Course Name"]}
+          </Link>
           ))}
         </div>
       </main>
