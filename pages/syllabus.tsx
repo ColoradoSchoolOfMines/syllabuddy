@@ -1,5 +1,3 @@
-// a nextjs page for the syllabus display
-
 import Head from 'next/head'
 import styles from '@/styles/Home.module.scss'
 import Link from 'next/link'
@@ -8,7 +6,7 @@ import { useRouter } from 'next/router';
 import { useQuery } from "react-query";
 import { fetchCourses } from '@/fetch-functions';
 import Header from '@/components/Header'
-//this uses public anonymous key that we don't care about, don't commit private keys to git :)
+
 function parseSyllabusURL(url: string) {
 	return url.replace("/view?usp=share_link", "").replace("open?id=","file/d/") + "/preview"
 }
