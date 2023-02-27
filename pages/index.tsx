@@ -11,6 +11,18 @@ import { useQuery } from "react-query";
 import { fetchCourses } from '@/fetch-functions';
 const inter = Inter({ subsets: ['latin'] })
 
+function isSearchResult(course: any, rawSearch: string, searchParams: any = {"searchName": true, "searchNumber": true, "searchProf": false}) {
+  const [courseName, courseNumber, search] = [
+    course["Course Name"].toLowerCase(),
+    course["Course Number"].toLowerCase(),
+    rawSearch.toLowerCase()
+  ]
+  if(search == "") return true;
+  if(searchParams["searchName"] && courseName.includes(search)) return true;
+  if(searchParams["searchNumber"] && courseNumber.replace(" ", "").includes(search)) return true;
+  return false;
+}
+
 export default function Home() {
   const [bigSearch, setBigSearch] = useState<string>("");
   const { isLoading, error, data: coursesData } = useQuery(
@@ -45,8 +57,7 @@ export default function Home() {
         <div className={styles.grid}>
           {/* TODO: show skeleton screen before content is loaded */}
           {coursesData?.map(course => (
-            course["Course Number"].toLowerCase().includes(bigSearch.toLowerCase()) || 
-            course["Course Name"].toLowerCase().includes(bigSearch.toLowerCase()) ?
+            isSearchResult(course, bigSearch) ?
           (<Link href={`syllabus?id=${course["id"]}`} className={styles.gridItem}>
               <h4>{course["Course Number"]}</h4>
               {course["Course Name"]}
