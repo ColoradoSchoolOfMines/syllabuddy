@@ -12,6 +12,7 @@ import { fetchCourses } from '@/fetch-functions';
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+  const [bigSearch, setBigSearch] = useState<string>("");
   const { isLoading, error, data: coursesData } = useQuery(
     {
       queryKey: "courseData", 
@@ -22,6 +23,7 @@ export default function Home() {
       //it will only refetch if the page is open for 3 hours
     }
   );
+  console.log(bigSearch)
   return (
     <>
       <Head>
@@ -35,16 +37,20 @@ export default function Home() {
       <Header/>
       <main className={styles.main}>
         <div className={styles.searchContainer}>
-          <input/>
-          {/* TODO: add search suggestions as divs here */}
+          <input
+            value={bigSearch}
+            onChange={e => setBigSearch(e.target.value)}
+          />
         </div>
         <div className={styles.grid}>
           {/* TODO: show skeleton screen before content is loaded */}
           {coursesData?.map(course => (
-          <Link href={`syllabus?id=${course["id"]}`} className={styles.gridItem}>
+            course["Course Number"].toLowerCase().includes(bigSearch.toLowerCase()) || 
+            course["Course Name"].toLowerCase().includes(bigSearch.toLowerCase()) ?
+          (<Link href={`syllabus?id=${course["id"]}`} className={styles.gridItem}>
               <h4>{course["Course Number"]}</h4>
               {course["Course Name"]}
-          </Link>
+          </Link>) : ""
           ))}
         </div>
       </main>
