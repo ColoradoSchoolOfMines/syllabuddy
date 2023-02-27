@@ -1,0 +1,13 @@
+.headerComponent {
+	font-family: monospace;
+	background: $header-bg;
+	.header{
+		margin: auto; //center the header
+		padding: 10px;
+		max-width: $max-width;
+		> nav{
+			display: flex;
+			justify-content: space-between;
+		}
+	}	
+}

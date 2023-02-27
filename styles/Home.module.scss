@@ -1,18 +1,23 @@
-.header {
-	font-family: monospace;
-	padding: 10px;
-	// padding-left: 50px;
-	background: $header-bg;
-	> nav{
-		display: flex;
-		justify-content: space-between;
-	}
-	
-}
 .main {
+	> .searchContainer{
+		> input{
+			display: flex;
+			padding: 10px;
+			border-radius: $border-radius;
+			border: $card-border;
+			margin: auto;
+			margin-top: 10px;
+			width: 80%;
+			max-width: 600px;
+			//center the input
+		
+		}
+	}
 	> .grid {
 		display: grid;
 		grid-template-columns: 1fr 1fr 1fr;
+		max-width: $max-width;
+		margin: auto;
 		> .gridItem{
 			padding: 10px;
 			background: $card-bg;

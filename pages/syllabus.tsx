@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router';
 import { useQuery } from "react-query";
 import { fetchCourses } from '@/fetch-functions';
+import Header from '@/components/Header'
 //this uses public anonymous key that we don't care about, don't commit private keys to git :)
 function parseSyllabusURL(url: string) {
 	return url.replace("/view?usp=share_link", "").replace("open?id=","file/d/") + "/preview"
@@ -40,12 +41,7 @@ export default function Syllabus() {
 			{/* TODO: create a favicon for Syllabuddies */}
 			<link rel="icon" href="/favicon.ico" />
 		</Head>
-		<header className={styles.header}>
-			<nav>
-				<h1><Link href="/">Syllabuddies</Link></h1>
-				<input className='searchbar' type="text" placeholder="Search.."/>
-			</nav>
-		</header>
+		<Header/>
 		<main>
 			<h1>{courseHeader}</h1>
 			<iframe className="pdf-embed" 

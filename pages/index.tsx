@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
+import Header from '@/components/Header'
 import { Inter } from '@next/font/google'
 import styles from '@/styles/Home.module.scss'
 import { createClient } from '@supabase/supabase-js'
@@ -31,14 +32,12 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       
-      <header className={styles.header}>
-        <nav>
-          <h1>Syllabuddies</h1>
-          <input className='searchbar' type="text" placeholder="Search.."/>
-        </nav>
-      </header>
+      <Header/>
       <main className={styles.main}>
-        {/* TODO: add and format search bar here */}
+        <div className={styles.searchContainer}>
+          <input/>
+          {/* TODO: add search suggestions as divs here */}
+        </div>
         <div className={styles.grid}>
           {/* TODO: show skeleton screen before content is loaded */}
           {coursesData?.map(course => (
