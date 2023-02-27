@@ -17,7 +17,6 @@ export default function Home() {
   useEffect(() =>  {
     async function getCourses() {
       const response = await supabase.from('syllabase').select()
-      // TODO: learn typescript :/
       // set course data to the response data and use typecasting to make typescript happy
       setCourseData(response.data as Array<any>)
     }
