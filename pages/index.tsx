@@ -47,7 +47,6 @@ export default function Home() {
 			//it will only refetch if the page is open for 3 hours
 		}
 	);
-	console.log(bigSearch)
 	return (
 		<>
 			<Head>

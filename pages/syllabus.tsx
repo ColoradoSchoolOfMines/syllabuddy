@@ -28,9 +28,8 @@ export default function Syllabus() {
 	const courseData = coursesData?.find((course: any) => course["id"] == query.id)
 	// really need to figure out this typescript stuff
 	const courseHeader = courseData ? `${courseData["Course Number"]}\n${courseData["Course Name"]}` : "Loading...";
-
 	const syllabusLink = courseData ? parseSyllabusURL(courseData["Syllabus Upload"]) : ""
-	console.log(syllabusLink)
+	
 	return <>
 		<Head>
 			<title>Syllabuddies</title>
