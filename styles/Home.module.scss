@@ -1,8 +1,10 @@
+@import "variables.globals.scss";
+
 .header {
 	font-family: monospace;
 	padding: 10px;
 	// padding-left: 50px;
-	background: #66A7F3;
+	background: $header-bg;
 	> nav{
 		display: flex;
 		justify-content: space-between;
@@ -15,7 +17,9 @@
 		grid-template-columns: 1fr 1fr 1fr;
 		> .gridItem{
 			padding: 10px;
-			background: gray;
+			background: $card-bg;
+			border-radius: $border-radius;
+			border: $card-border;
 			margin: 10px;
 		}
 	}
