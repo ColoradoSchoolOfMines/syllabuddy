@@ -29,7 +29,8 @@ export default function Syllabus() {
   },[query.id])
 
 	// really need to figure out this typescript stuff
-	const courseHeader = courseData ? `${courseData["Course Number"]}: ${courseData["Course Name"]}` : "Loading..."
+	const courseHeader = courseData ? `${courseData["Course Number"]}\n${courseData["Course Name"]}` : "Loading...";
+
 	const syllabusLink = courseData ? parseSyllabusURL(courseData["Syllabus Upload"]) : ""
 	console.log(syllabusLink)
 	return <>

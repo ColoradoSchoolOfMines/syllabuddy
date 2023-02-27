@@ -21,3 +21,16 @@ a {
   color: inherit;
   text-decoration: none;
 }
+
+h1 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  white-space: pre-wrap;
+  text-align: left;
+  font-family:'Courier New', Courier, monospace;
+
+  &::before {
+    content: "\a";
+    white-space: pre;
+  }
+}
