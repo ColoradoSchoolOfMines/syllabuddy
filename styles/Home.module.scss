@@ -1,22 +1,50 @@
 .header {
-	font-family: monospace;
+	font-family: 'Advent Pro';
 	padding: 10px;
 	// padding-left: 50px;
 	background: #66A7F3;
-	> nav{
+
+	>nav {
 		display: flex;
 		justify-content: space-between;
+		
 	}
-	
+	.searchbar {
+        width: 200px;
+        padding: 8px;
+        border: none;
+        border-radius: 10px;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+        font-size: 16px;
+        
+        &:focus {
+          outline: none;
+        }
+        
+        &::placeholder {
+          color: #999;
+        }
+	}
 }
+
 .main {
-	> .grid {
+	>.grid {
 		display: grid;
 		grid-template-columns: 1fr 1fr 1fr;
-		> .gridItem{
+
+		>.gridItem {
+			display: flex;
+  			align-items: center;
+			justify-content: center;
 			padding: 10px;
-			background: gray;
+			width: 350px;
+  			height: 186px;
 			margin: 10px;
+			box-sizing: border-box;
+  			background: #D9D9D9;
+  			border: 1px solid #66A7F3;
+  			border-radius: 10px;
+			font-family: 'Roboto';
 		}
 	}
 }
