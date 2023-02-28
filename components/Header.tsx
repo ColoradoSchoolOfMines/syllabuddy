@@ -6,7 +6,7 @@ export default function Header() {
 			<div className={styles.header}>
 				<nav>
 					<h1><Link href="/">Syllabuddies</Link></h1>
-					<input className='searchbar' type="text" placeholder="Search.." />
+					{/* <input className='searchbar' type="text" placeholder="Search..." /> */}
 				</nav>
 			</div>
 		</header>

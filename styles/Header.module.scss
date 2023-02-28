@@ -1,5 +1,4 @@
 .headerComponent {
-	font-family: monospace;
 	background: $header-bg;
 	.header{
 		margin: auto; //center the header
@@ -8,6 +7,12 @@
 		> nav{
 			display: flex;
 			justify-content: space-between;
+			>h1 {
+				margin: 0;
+				height: 40px;
+				// hacky solution, should fix at some point
+				line-height: 0.4;
+			}
 		}
-	}	
+	}
 }
