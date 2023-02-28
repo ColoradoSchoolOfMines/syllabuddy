@@ -22,6 +22,10 @@
 			border-radius: $border-radius;
 			border: $card-border;
 			margin: 10px;
+			transition: all 0.18s;
+		}
+		> .gridItem:hover{
+			background: darken($card-bg, 8%);
 		}
 	}
 }

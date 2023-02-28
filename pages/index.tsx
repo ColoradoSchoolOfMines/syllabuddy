@@ -61,6 +61,7 @@ export default function Home() {
 			<main className={styles.main}>
 				<div className={styles.searchContainer}>
 					<input
+						placeholder="Filter by course department, number, and/or name..."
 						value={bigSearch}
 						onChange={e => setBigSearch(e.target.value)}
 					/>
