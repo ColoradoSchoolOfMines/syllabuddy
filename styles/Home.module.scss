@@ -1,13 +1,23 @@
 .main {
-	> .searchContainer{
-		> input{
-			display: flex;
-			padding: 10px;
-			border-radius: $border-radius;
-			border: $card-border;
-			margin: 30px auto 20px;
-			width: 80%;
-			max-width: 600px;
+	> .searchContainer {
+		margin: 30px auto 20px;
+		max-width: 600px;
+		> .searchContainerInner {
+			position: relative;
+			> input{
+				display: inline;
+				padding: 10px;
+				padding-right: 32px;
+				border-radius: $border-radius;
+				border: $card-border;
+				width: 100%;
+			}
+			.searchIcon{
+				display: inline;
+				position: absolute;
+				right: 4px;
+				top: 4px;
+			}
 		}
 	}
 	> .grid {

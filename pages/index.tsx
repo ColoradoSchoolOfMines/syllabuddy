@@ -71,16 +71,19 @@ export default function Home() {
 			<Header/>
 			<main className={styles.main}>
 				<div className={styles.searchContainer}>
-					<input
-						placeholder="Filter by course department, number, and/or name..."
-						value={bigSearch}
-						onChange={e => setBigSearch(e.target.value)}
-					/>
+					<div className={styles.searchContainerInner}>
+						<input
+							placeholder="Filter by course department, number, and/or name..."
+							value={bigSearch}
+							onChange={e => setBigSearch(e.target.value)}
+						/>
+						<Image alt="" className={styles.searchIcon} width="30" height="30" src="icon-search.svg"></Image>
+					</div>
 				</div>
 				<div className={styles.grid}>
 					{/* TODO: show skeleton screen before content is loaded */}
 					{coursesDataFiltered?.map(course => (
-					(<Link href={`syllabus?id=${course["id"]}`} className={styles.gridItem}>
+					(<Link key={course["id"]} href={`syllabus?id=${course["id"]}`} className={styles.gridItem}>
 							<h4>{course["Course Number"]}</h4>
 							{course["Course Name"]}
 					</Link>)
