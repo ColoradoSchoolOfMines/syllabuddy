@@ -57,6 +57,9 @@ export default function Home() {
 		if (strA < strB) return -1;
 		return 0;
 	});
+	// coursesDataFiltered?.push(
+	// 	{ "Course Number": "CSCI 201", "Course Name": "Intro to Software Engineering", "Professor": "Dr. John Doe" },
+	// )
 
 	return (
 		<>
@@ -88,6 +91,10 @@ export default function Home() {
 							{course["Course Name"]}
 					</Link>)
 					))}
+					<Link href={`request`} className={styles.gridItem}>
+							<h4>Can't find a course?</h4>
+							Request a syllabus!
+					</Link>
 				</div>
 			</main>
 		</>
