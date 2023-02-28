@@ -47,7 +47,17 @@ export default function Home() {
 			//it will only refetch if the page is open for 3 hours
 		}
 	);
-	console.log(bigSearch)
+	
+	const coursesDataFiltered = coursesData?.filter((course: any) => isSearchResult(course, bigSearch));
+	// TODO: make sorting modular
+	coursesDataFiltered?.sort((a: any, b: any) => {
+		const strA = a["Course Number"].toLowerCase();
+		const strB = b["Course Number"].toLowerCase();
+		if (strA > strB) return 1;
+		if (strA < strB) return -1;
+		return 0;
+	});
+
 	return (
 		<>
 			<Head>
@@ -69,12 +79,11 @@ export default function Home() {
 				</div>
 				<div className={styles.grid}>
 					{/* TODO: show skeleton screen before content is loaded */}
-					{coursesData?.map(course => (
-						isSearchResult(course, bigSearch) ?
+					{coursesDataFiltered?.map(course => (
 					(<Link href={`syllabus?id=${course["id"]}`} className={styles.gridItem}>
 							<h4>{course["Course Number"]}</h4>
 							{course["Course Name"]}
-					</Link>) : ""
+					</Link>)
 					))}
 				</div>
 			</main>
