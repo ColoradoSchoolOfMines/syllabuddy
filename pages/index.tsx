@@ -49,7 +49,7 @@ export default function Home() {
 				{/* <script async src="https://w.appzi.io/w.js?token=25eG1"/> */}
 			</Head>
 			
-			<Header/>
+			<Header coursesData={coursesData}/>
 			<main className={styles.main}>
 				<BigSearch value={bigSearch} setValue={setBigSearch}/>
 				<div className={styles.grid}>

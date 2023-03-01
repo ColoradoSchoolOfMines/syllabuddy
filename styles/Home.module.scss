@@ -5,6 +5,7 @@
 		> .searchContainerInner {
 			position: relative;
 			> input{
+				background: $search-bg;
 				display: inline;
 				padding: 10px;
 				padding-right: 32px;

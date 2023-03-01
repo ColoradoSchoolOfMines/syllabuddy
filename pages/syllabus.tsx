@@ -39,7 +39,7 @@ export default function Syllabus() {
 			<link rel="icon" href="/favicon.ico" />
 			{/* <script async src="https://w.appzi.io/w.js?token=25eG1"></script> */}
 		</Head>
-		<Header/>
+		<Header coursesData={coursesData}/>
 		<main>
 			<h1>{courseHeader}</h1>
 			<iframe className="pdf-embed" 
