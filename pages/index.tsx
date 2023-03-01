@@ -69,16 +69,20 @@ export default function Home() {
 				<meta name="viewport" content="width=device-width, initial-scale=1" />
 				{/* TODO: create a favicon for Syllabuddies */}
 				<link rel="icon" href="/favicon.ico" />
+				<script async src="https://w.appzi.io/w.js?token=25eG1"></script>
 			</Head>
 			
 			<Header/>
 			<main className={styles.main}>
 				<div className={styles.searchContainer}>
-					<input
-						placeholder="Filter by course department, number, and/or name..."
-						value={bigSearch}
-						onChange={e => setBigSearch(e.target.value)}
-					/>
+					<div className={styles.searchContainerInner}>
+						<input
+							placeholder="Filter by course department, number, and/or name..."
+							value={bigSearch}
+							onChange={e => setBigSearch(e.target.value)}
+						/>
+						<Image alt="" className={styles.searchIcon} width="30" height="30" src="icon-search.svg"></Image>
+					</div>
 				</div>
 				<div className={styles.grid}>
 					{/* TODO: show skeleton screen before content is loaded */}
