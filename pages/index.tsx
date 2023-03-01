@@ -40,13 +40,13 @@ export default function Home() {
 
 	return (
 		<>
+			<Script src="https://w.appzi.io/w.js?token=25eG1"/>
 			<Head>
 				<title>Syllabuddies</title>
 				<meta name="description" content="Find a syllabus at the Colorado School of Mines" />
 				<meta name="viewport" content="width=device-width, initial-scale=1" />
 				{/* TODO: create a favicon for Syllabuddies */}
 				<link rel="icon" href="/favicon.ico" />
-				{/* <script async src="https://w.appzi.io/w.js?token=25eG1"/> */}
 			</Head>
 			
 			<Header coursesData={coursesData}/>
@@ -66,6 +66,7 @@ export default function Home() {
 					</Link>
 				</div>
 			</main>
+
 		</>
 	)
 }

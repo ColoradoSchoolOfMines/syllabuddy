@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import styles from '@/styles/Home.module.scss'
 import Link from 'next/link'
+import Script from 'next/script'
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router';
 import { useQuery } from "react-query";
@@ -31,13 +32,13 @@ export default function Syllabus() {
 	const syllabusLink = courseData ? parseSyllabusURL(courseData["Syllabus Upload"]) : ""
 	
 	return <>
+		<Script src="https://w.appzi.io/w.js?token=25eG1"/>
 		<Head>
 			<title>Syllabuddies</title>
 			<meta name="description" content="Find a syllabus at the Colorado School of Mines" />
 			<meta name="viewport" content="width=device-width, initial-scale=1" />
 			{/* TODO: create a favicon for Syllabuddies */}
 			<link rel="icon" href="/favicon.ico" />
-			{/* <script async src="https://w.appzi.io/w.js?token=25eG1"></script> */}
 		</Head>
 		<Header coursesData={coursesData}/>
 		<main>
