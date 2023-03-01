@@ -83,12 +83,12 @@ export default function Home() {
 				<div className={styles.grid}>
 					{/* TODO: show skeleton screen before content is loaded */}
 					{coursesDataFiltered?.map(course => (
-					(<Link href={`syllabus?id=${course["id"]}`} className={styles.gridItem}>
+					(<Link key={`COURSEID${course["id"]}`} href={`syllabus?id=${course["id"]}`} className={styles.gridItem}>
 							<h4>{course["Course Number"]}</h4>
 							{course["Course Name"]}
 					</Link>)
 					))}
-					<Link href={`request`} className={styles.gridItem}>
+					<Link href={'request'} className={styles.gridItem}>
 							<h4>Can't find a course?</h4>
 							Request a syllabus!
 					</Link>
