@@ -1,14 +1,14 @@
 import styles from '../styles/Home.module.scss'
 import Link from 'next/link'
 import Image from 'next/image'
-export function BigSearch({value, setter}) {
+export default function BigSearch({value, setValue}) {
 	return (
 		<div className={styles.searchContainer}>
 			<div className={styles.searchContainerInner}>
 				<input
 					placeholder="Filter by course department, number, and/or name..."
-					value={bigSearch}
-					onChange={e => setBigSearch(e.target.value)}
+					value={value}
+					onChange={e => setValue(e.target.value)}
 				/>
 				<Image alt="" className={styles.searchIcon} width="30" height="30" src="icon-search.svg"></Image>
 			</div>

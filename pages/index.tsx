@@ -3,7 +3,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 import Script from 'next/script'
 import Header from '@/components/Header'
-import { isSearchResult, BigSearch } from '@/components/BigSearch'
+import BigSearch from '@/components/BigSearch'
+import { isSearchResult } from '@/components/BigSearch'
 import { Inter } from '@next/font/google'
 import styles from '@/styles/Home.module.scss'
 import { createClient } from '@supabase/supabase-js'
@@ -50,7 +51,7 @@ export default function Home() {
 			
 			<Header/>
 			<main className={styles.main}>
-				<BigSearch value={bigSearch} setter={setBigSearch}/>
+				<BigSearch value={bigSearch} setValue={setBigSearch}/>
 				<div className={styles.grid}>
 					{/* TODO: show skeleton screen before content is loaded */}
 					{coursesDataFiltered?.map(course => (
