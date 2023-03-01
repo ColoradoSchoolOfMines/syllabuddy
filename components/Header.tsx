@@ -13,7 +13,7 @@ export default function Header({coursesData}) {
 		return 0;
 	});
 	// TODO: limit number of search results
-	
+
 	return (
 		<header className={styles.headerComponent}>
 			<div className={styles.header}>
@@ -25,7 +25,9 @@ export default function Header({coursesData}) {
 						{
 							search != "" && 
 							coursesDataFiltered?.map((course : any) => (
-							<Link href={`syllabus/id?=${course["id"]}`}className={styles.searchResults}>
+							<Link key={`LILSEARCHRESULT${course["id"]}`} 
+							href={`syllabus?id=${course["id"]}`}
+							className={styles.searchResults}>
 								<b>{course["Course Number"]}</b>: {course["Course Name"]}</Link>
 							))
 

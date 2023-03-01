@@ -1,7 +1,7 @@
 import styles from '../styles/Home.module.scss'
 import Link from 'next/link'
 import Image from 'next/image'
-export default function BigSearch({value, setValue}) {
+export default function BigSearch({value, setValue} : {value: string, setValue: any}) {
 	return (
 		<div className={styles.searchContainer}>
 			<div className={styles.searchContainerInner}>
