@@ -3,6 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import Script from 'next/script'
 import Header from '@/components/Header'
+import { isSearchResult, BigSearch } from '@/components/BigSearch'
 import { Inter } from '@next/font/google'
 import styles from '@/styles/Home.module.scss'
 import { createClient } from '@supabase/supabase-js'
@@ -12,29 +13,6 @@ import { useQuery } from "react-query";
 import { fetchCourses } from '@/fetch-functions';
 const inter = Inter({ subsets: ['latin'] })
 
-function isSearchResult(course: any, rawSearch: string, 
-	searchParams: any = [
-		{ param : "Course Name", 		enabled: true  },
-		{ param : "Course Number", 	enabled: true  },
-		{ param : "Professor",			enabled: false }	]) {
-	// if search is empty, return true
-	if (rawSearch == "") return true;
-	const search = rawSearch.toLowerCase();
-	// remove disabled search params
-	searchParams = searchParams.filter( (searchItem: any) => searchItem.enabled);
-	// grab course data for each search param
-	searchParams = searchParams.map( (searchItem: any) => (
-		{...searchItem, data : course[searchItem?.param]?.toLowerCase()}
-	))
-	// if Course Number is an enabled search param, add a search param without spaces
-	if (searchParams.some( (searchItem: any) => searchItem.param == "Course Number")) {
-		searchParams.push({
-			param: "Course Number", enabled: true, 
-			data: course["Course Number"].replace(" ", "").toLowerCase()
-		})
-	}
-	return searchParams.some( (searchItem: any) => searchItem.data?.includes(search) );
-}
 
 export default function Home() {
 	const [bigSearch, setBigSearch] = useState<string>("");
@@ -58,9 +36,6 @@ export default function Home() {
 		if (strA < strB) return -1;
 		return 0;
 	});
-	// coursesDataFiltered?.push(
-	// 	{ "Course Number": "CSCI 201", "Course Name": "Intro to Software Engineering", "Professor": "Dr. John Doe" },
-	// )
 
 	return (
 		<>
@@ -75,16 +50,7 @@ export default function Home() {
 			
 			<Header/>
 			<main className={styles.main}>
-				<div className={styles.searchContainer}>
-					<div className={styles.searchContainerInner}>
-						<input
-							placeholder="Filter by course department, number, and/or name..."
-							value={bigSearch}
-							onChange={e => setBigSearch(e.target.value)}
-						/>
-						<Image alt="" className={styles.searchIcon} width="30" height="30" src="icon-search.svg"></Image>
-					</div>
-				</div>
+				<BigSearch value={bigSearch} setter={setBigSearch}/>
 				<div className={styles.grid}>
 					{/* TODO: show skeleton screen before content is loaded */}
 					{coursesDataFiltered?.map(course => (
