@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
+import Script from 'next/script'
 import Header from '@/components/Header'
 import { Inter } from '@next/font/google'
 import styles from '@/styles/Home.module.scss'
@@ -69,7 +70,7 @@ export default function Home() {
 				<meta name="viewport" content="width=device-width, initial-scale=1" />
 				{/* TODO: create a favicon for Syllabuddies */}
 				<link rel="icon" href="/favicon.ico" />
-				<script async src="https://w.appzi.io/w.js?token=25eG1"></script>
+				{/* <script async src="https://w.appzi.io/w.js?token=25eG1"/> */}
 			</Head>
 			
 			<Header/>
