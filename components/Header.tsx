@@ -2,7 +2,7 @@ import styles from '../styles/Header.module.scss'
 import Link from 'next/link'
 import { useState } from 'react'
 import { isSearchResult } from './BigSearch';
-export default function Header({coursesData}) {
+export default function Header({coursesData} : {coursesData?: Array<any>}) {
 	const [search, setSearch] = useState("");
 	const coursesDataFiltered = coursesData?.filter((course: any) => isSearchResult(course, search));
 	coursesDataFiltered?.sort((a: any, b: any) => {
