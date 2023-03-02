@@ -31,7 +31,7 @@ export default function Syllabus() {
 		</Head>
 		<Header/>
 		<main>
-			<h1>Sorry we don't have the course you are looking for</h1>
+			<h1>Sorry we don&apos;t have the course you are looking for</h1>
 			<p>Fill out this form to request the class</p>
 		</main>
 	</>

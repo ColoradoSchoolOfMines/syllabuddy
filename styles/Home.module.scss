@@ -22,7 +22,7 @@
 	}
 	> .grid {
 		display: grid;
-		grid-template-columns: 1fr 1fr 1fr;
+		grid-template-columns: repeat(3, 1fr);
 		max-width: $max-width;
 		margin: auto;
 		> .gridItem{
@@ -35,6 +35,11 @@
 		}
 		> .gridItem:hover{
 			background: darken($card-bg, 8%);
+		}
+	}
+	@media only screen and (max-width: 720px) {
+		> .grid {
+			grid-template-columns: repeat(2, 1fr);
 		}
 	}
 }
