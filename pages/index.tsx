@@ -62,13 +62,13 @@ export default function Home() {
 					))}
 					<Link href={`request`} className={styles.gridItem}>
 							<h4>Can&apos;t find a course?</h4>
+					</Link>
 					<Link href={'request'} className={styles.gridItem}>
 							<h4>Can't find a course?</h4>
 							Request a syllabus!
 					</Link>
 				</div>
 			</main>
-
 		</>
 	)
 }
