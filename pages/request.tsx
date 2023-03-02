@@ -7,7 +7,7 @@ import { useQuery } from "react-query";
 import { fetchCourses } from '@/fetch-functions';
 import Header from '@/components/Header'
 
-export default function Syllabus() {
+export default function Request() {
 	const router = useRouter();
 	const { name, location } = router.query;
 	const query = router.query;
