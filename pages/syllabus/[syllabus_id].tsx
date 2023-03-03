@@ -54,14 +54,19 @@ export default function Syllabus() {
 	</>
 }
 
-// export const getStaticPaths: GetStaticPaths = async () => {
-// 	// Get all posts via API, file, etc.
-// 	const posts = [{syllabus_id: 0}];
-// 	for( let i = 1; i < 1000; i++) {
-// 		posts.push({syllabus_id: i});
-// 	}
-// 	const paths = posts.map(post => ({
-// 			params: { syllabud_id: post.syllabus_id },
-// 	}));
-// 	return { paths, fallback: false };
-// };
+export const getStaticPaths: GetStaticPaths = async () => {
+	// Get all posts via API, file, etc.
+	const posts = [{syllabus_id: 0}];
+	for( let i = 1; i < 1000; i++) {
+		posts.push({syllabus_id: i});
+	}
+	const paths = posts.map(post => ({
+			params: { syllabus_id: String(post.syllabus_id) },
+	}));
+	return { paths, fallback: false };
+};
+export async function getStaticProps() {
+  return {
+    props: {}, // will be passed to the page component as props
+  }
+}
