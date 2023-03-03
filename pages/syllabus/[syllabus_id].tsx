@@ -14,8 +14,8 @@ function parseSyllabusURL(url: string) {
 
 export default function Syllabus() {
 	const router = useRouter();
-	const { name, location } = router.query;
-	const query = router.query;
+	const { syllabus_id } = router.query;
+	// const query = router.query;
 	const { isLoading, error, data: coursesData } = useQuery(
     {
       queryKey: "courseData", 
@@ -26,7 +26,7 @@ export default function Syllabus() {
       //it will only refetch if the page is open for 3 hours
     }
 	)
-	const courseData = coursesData?.find((course: any) => course["id"] == query.id)
+	const courseData = coursesData?.find((course: any) => course["id"] == syllabus_id)
 	// really need to figure out this typescript stuff
 	const courseHeader = courseData ? `${courseData["Course Number"]}\n${courseData["Course Name"]}` : "Loading...";
 	const syllabusLink = courseData ? parseSyllabusURL(courseData["Syllabus Upload"]) : ""
