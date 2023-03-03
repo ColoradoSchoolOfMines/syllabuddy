@@ -2,6 +2,7 @@ import Head from 'next/head'
 import styles from '@/styles/Syllabus.module.scss'
 import Link from 'next/link'
 import Script from 'next/script'
+import { GetStaticPaths, GetStaticProps } from 'next';
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router';
 import { useQuery } from "react-query";
@@ -52,3 +53,15 @@ export default function Syllabus() {
 		</main>
 	</>
 }
+
+// export const getStaticPaths: GetStaticPaths = async () => {
+// 	// Get all posts via API, file, etc.
+// 	const posts = [{syllabus_id: 0}];
+// 	for( let i = 1; i < 1000; i++) {
+// 		posts.push({syllabus_id: i});
+// 	}
+// 	const paths = posts.map(post => ({
+// 			params: { syllabud_id: post.syllabus_id },
+// 	}));
+// 	return { paths, fallback: false };
+// };
