@@ -9,13 +9,24 @@ import { Inter } from '@next/font/google'
 import styles from '@/styles/Home.module.scss'
 import { createClient } from '@supabase/supabase-js'
 import { useEffect, useState } from 'react'
-
+import { useJitsu } from "@jitsu/react";
+import { v4 as uuidv4 } from 'uuid';
 import { useQuery } from "react-query";
 import { fetchCourses } from '@/fetch-functions';
 const inter = Inter({ subsets: ['latin'] })
 
 
 export default function Home() {
+	const {id, track, trackPageView} = useJitsu(); // import methods from useJitsu hook
+	useEffect(() => {
+		let user_id = localStorage.getItem("user_id")
+		if(!user_id){
+			localStorage.setItem("user_id", uuidv4())
+			user_id = String(localStorage.getItem("user_id"))
+		}
+    id({id: user_id}); // identify current user for all track events
+    trackPageView() // send page_view event
+  })
 	const [bigSearch, setBigSearch] = useState<string>("");
 	const { isLoading, error, data: coursesData } = useQuery(
 		{
@@ -40,7 +51,10 @@ export default function Home() {
 
 	return (
 		<>
+			{/* Feedback button */}
 			<Script src="https://w.appzi.io/w.js?token=25eG1"/>
+			{/* Cloudflare */}
+			<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "b120c77ea1084b8ea1f89d3e1d9b8dfa"}'></script>
 			<Head>
 				<title>Syllabuddies</title>
 				<meta name="description" content="Find a syllabus at the Colorado School of Mines" />
@@ -60,9 +74,6 @@ export default function Home() {
 							{course["Course Name"]}
 					</Link>)
 					))}
-					<Link href={`request`} className={styles.gridItem}>
-							<h4>Can&apos;t find a course?</h4>
-					</Link>
 					<Link href={'request'} className={styles.gridItem}>
 							<h4>Can't find a course?</h4>
 							Request a syllabus!

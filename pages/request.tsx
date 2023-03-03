@@ -33,6 +33,7 @@ export default function Request() {
 		<main>
 			<h1>Sorry we don&apos;t have the course you are looking for</h1>
 			<p>Fill out this form to request the class</p>
+			<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfU1FmjOUrZTatn6c19zUvU9slF3IX6J3OoCLtQ25ApEzUJgA/viewform?embedded=true" width="100%" height="1000px" frameBorder="0">Loading…</iframe>
 		</main>
 	</>
 }
