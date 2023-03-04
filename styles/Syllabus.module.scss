@@ -1,20 +1,39 @@
 .main{
 	> .classInfo{
+		display:flex;
+		justify-content: space-between;
 		font-size: 1.5rem;
 		font-family: $system-font;
 		padding-top: 20px;
-		padding-left: 10px;
+		padding-left: 15px;
+		button{
+			font-size: 1.15rem;
+			font-weight: bold;
+			margin-right: 10px;
+			background: $primary;
+			border-radius: $border-radius-2x;
+			border: none;
+			padding: 15px;
+			@media only screen and (min-width: 1220px) {
+				margin-right: 0px;
+			}
+		}
 		p{
 			font-size: 1.5rem;
+		}
+		@media only screen and (min-width: 1220px) {
+			padding-left: 0px;
 		}
 	}
 	> p{
 		text-align: center;
 		background: $secondary;
 		border-radius: $border-radius;
-		margin: 10px;
+		margin: 10px 10px 10px 15px;
 		padding: 7px 0 7px 0;
-		// height: 30px;
+		@media only screen and (min-width: 1220px) {
+			margin: 10px 0 10px 0;
+		}
 	}
 	iframe{
 		// TODO: fix iframe sizing

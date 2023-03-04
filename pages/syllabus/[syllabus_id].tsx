@@ -12,7 +12,9 @@ import Header from '@/components/Header'
 function parseSyllabusURL(url: string) {
 	return url.replace("/view?usp=share_link", "").replace("open?id=","file/d/") + "/preview"
 }
-
+function createDownloadLink(url: string) {
+	return parseSyllabusURL(url).replace("/preview", "").replace("/file/d/", "/uc?export=download&id=")
+}
 export default function Syllabus() {
 	const router = useRouter();
 	const { syllabus_id } = router.query;
@@ -29,7 +31,12 @@ export default function Syllabus() {
 	)
 	const courseData = coursesData?.find((course: any) => course["id"] == syllabus_id)
 	// really need to figure out this typescript stuff
-	const courseHeader = courseData ? <> <h1>{courseData["Course Number"]}</h1> <p>{courseData["Course Name"]}</p></> : "Loading...";
+	const courseHeader = courseData ? <div>
+			<h1>{courseData["Course Number"]}</h1>
+			<p>{courseData["Course Name"]}</p>
+		</div> : "Loading...";
+	const downloadLink = courseData ? createDownloadLink(courseData["Syllabus Upload"]) : ""
+	const downloadButton = <button type="button" onClick={() => window.location.href = downloadLink}>Download PDF</button>
 	const syllabusLink = courseData ? parseSyllabusURL(courseData["Syllabus Upload"]) : ""
 	
 	return <>
@@ -45,6 +52,7 @@ export default function Syllabus() {
 		<main className={styles.main}>
 			<div className={styles.classInfo}>
 				{courseHeader}
+				{downloadButton}
 			</div>
 			<p>Information from past syllabi may not reflect current course content and structure</p>
 			<iframe className="pdf-embed" 
