@@ -29,7 +29,7 @@ export default function Syllabus() {
 	)
 	const courseData = coursesData?.find((course: any) => course["id"] == syllabus_id)
 	// really need to figure out this typescript stuff
-	const courseHeader = courseData ? `${courseData["Course Number"]}\n${courseData["Course Name"]}` : "Loading...";
+	const courseHeader = courseData ? <> <h1>{courseData["Course Number"]}</h1> <p>{courseData["Course Name"]}</p></> : "Loading...";
 	const syllabusLink = courseData ? parseSyllabusURL(courseData["Syllabus Upload"]) : ""
 	
 	return <>
@@ -44,8 +44,9 @@ export default function Syllabus() {
 		<Header coursesData={coursesData}/>
 		<main className={styles.main}>
 			<div className={styles.classInfo}>
-				<h1>{courseHeader}</h1>
+				{courseHeader}
 			</div>
+			<p>Information from past syllabi may not reflect current course content and structure</p>
 			<iframe className="pdf-embed" 
 			src={syllabusLink} //https://drive.google.com/file/d/1c_JTe3SY54vS0pgivz8HA5zyIAFLcdw1/preview
 			width="100%" height="1000px" allow="autoplay">
