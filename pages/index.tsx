@@ -71,7 +71,13 @@ export default function Home() {
 					{coursesDataFiltered?.map(course => (
 					(<Link key={`COURSEID${course["id"]}`} href={`syllabus/${course["id"]}`} className={styles.gridItem}>
 							<h4>{course["Course Number"]}</h4>
-							{course["Course Name"]}
+							<p>{course["Course Name"]}</p>
+							<p>
+								{`${course["Semester"]||""} ${course["Year"]||""}`}
+							</p>
+
+							
+					
 					</Link>)
 					))}
 					<Link href={'request'} className={styles.gridItem}>
