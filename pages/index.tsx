@@ -44,6 +44,8 @@ export default function Home() {
 	coursesDataFiltered?.sort((a: any, b: any) => {
 		const strA = a["Course Number"].toLowerCase();
 		const strB = b["Course Number"].toLowerCase();
+		if(a["Year"] < b["Year"]) return 1;
+		if(a["Year"] > b["Year"]) return -1;
 		if (strA > strB) return 1;
 		if (strA < strB) return -1;
 		return 0;
