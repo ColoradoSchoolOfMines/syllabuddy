@@ -3,6 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import Script from 'next/script'
 import Header from '@/components/Header'
+import Footer from '@/components/Footer'
 import BigSearch from '@/components/BigSearch'
 import { isSearchResult } from '@/components/BigSearch'
 import { Inter } from '@next/font/google'
@@ -88,6 +89,7 @@ export default function Home() {
 					</Link>
 				</div>
 			</main>
+			<Footer />
 		</>
 	)
 }

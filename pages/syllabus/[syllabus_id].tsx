@@ -8,6 +8,7 @@ import { useRouter } from 'next/router';
 import { useQuery } from "react-query";
 import { fetchCourses } from '@/fetch-functions';
 import Header from '@/components/Header'
+import Footer from '@/components/Footer'
 
 function parseSyllabusURL(url: string) {
 	return url.replace("/view?usp=share_link", "").replace("open?id=","file/d/") + "/preview"
@@ -60,6 +61,7 @@ export default function Syllabus() {
 			width="100%" height="1000px" allow="autoplay">
 			</iframe>
 		</main>
+		<Footer />
 	</>
 }
 

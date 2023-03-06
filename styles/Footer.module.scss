@@ -1,0 +1,12 @@
+.footerComponent{
+	background: $card-bg;
+	outline: $card-border;
+	text-align: center;
+	padding: 20px;
+	margin-bottom: 20px;
+	margin-top: 10px;
+	a{
+		color: $primary;
+		text-decoration: wavy underline
+	}
+}
