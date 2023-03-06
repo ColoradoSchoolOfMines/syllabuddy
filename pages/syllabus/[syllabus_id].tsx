@@ -34,7 +34,8 @@ export default function Syllabus() {
 	// really need to figure out this typescript stuff
 	const courseHeader = courseData ? <div>
 			<h1>{courseData["Course Number"]}</h1>
-			<p>{courseData["Course Name"]}</p>
+			<p>{courseData["Course Name"]}: &nbsp;</p>
+			<p className={styles.date}>{courseData["Semester"]||""} {courseData["Year"]||""}</p>
 		</div> : "Loading...";
 	const downloadLink = courseData ? createDownloadLink(courseData["Syllabus Upload"]) : ""
 	const downloadButton = <button type="button" onClick={() => window.location.href = downloadLink}>Download PDF</button>
