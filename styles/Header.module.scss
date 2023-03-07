@@ -39,10 +39,15 @@
 					outline: none;
 				}
 			}
-			> .searchResults{
+			> .searchResults {
 				// TODO: Cut off long results
 				display: block;
 				padding: 5px;
+				font-family: $system-font;
+				transition: all 0.18s;
+			}
+			> .searchResults:hover {
+				background: $card-bg;
 			}
 		}
 	}
