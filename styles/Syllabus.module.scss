@@ -10,7 +10,7 @@
 			font-size: 1.15rem;
 			font-weight: bold;
 			margin-right: 10px;
-			background: $primary;
+			background: var(--var-primary);
 			border-radius: $border-radius-2x;
 			border: none;
 			padding: 12px 24px;
@@ -21,11 +21,11 @@
 		}
 		.downloadButton:hover{
 			cursor: pointer;
-			background: lighten($primary, 8%);
+			filter: brightness(108%);
 		}
 		.downloadButton:active{
 			cursor: pointer;
-			background: lighten($primary, 12%);
+			filter: brightness(112%);
 		}
 		>div {
 			> .date{

@@ -1,5 +1,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Advent+Pro:wght@400;600&display=swap');
 
+:root {
+  --var-background: rgb(239, 241, 243);
+  --var-background-search: rgb(255, 255, 255);
+
+  --var-primary: rgb(104, 169, 243);
+
+  --var-card-bg: rgb(221, 230, 235);
+  --var-card-bg-hover: rgb(202, 218, 226);
+  --var-card-bg-active: rgb(181, 201, 212);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --var-background: rgb(39, 39, 39);
+    --var-background-search: rgb(23, 23, 23);
+
+    --var-primary: rgb(26, 83, 148);
+
+    --var-card-bg: rgb(59, 70, 77);
+    --var-card-bg-hover: rgb(66, 81, 89);
+    --var-card-bg-active: rgb(73, 99, 113);
+  }
+}
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -12,7 +37,7 @@ html, body {
 }
 
 html {
-  background: $background;
+  background: var(--var-background);
 }
 
 p {
