@@ -9,6 +9,8 @@ import { useQuery } from "react-query";
 import { fetchCourses } from '@/fetch-functions';
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import { useJitsu } from "@jitsu/react";
+import { v4 as uuidv4 } from 'uuid';
 
 function parseSyllabusURL(url: string) {
 	return url.replace("/view?usp=share_link", "").replace("open?id=","file/d/") + "/preview"
@@ -17,6 +19,17 @@ function createDownloadLink(url: string) {
 	return parseSyllabusURL(url).replace("/preview", "").replace("/file/d/", "/uc?export=download&id=")
 }
 export default function Syllabus() {
+	const {id, track, trackPageView} = useJitsu(); // import methods from useJitsu hook
+	useEffect(() => {
+		let user_id = localStorage.getItem("user_id")
+		if(!user_id){
+			localStorage.setItem("user_id", uuidv4())
+			user_id = String(localStorage.getItem("user_id"))
+		}
+    id({id: user_id}); // identify current user for all track events
+    trackPageView() // send page_view event
+  })
+
 	const router = useRouter();
 	const { syllabus_id } = router.query;
 	// const query = router.query;
