@@ -42,10 +42,16 @@
 		> .gridItem:hover{
 			background: darken($card-bg, 8%);
 		}
+		> .gridItem:active{
+			background: darken($card-bg, 16%);
+		}
 	}
 	@media only screen and (max-width: 720px) {
 		> .grid {
 			grid-template-columns: repeat(2, 1fr);
 		}
+	}
+	.lightText {
+		opacity: 0.72;
 	}
 }

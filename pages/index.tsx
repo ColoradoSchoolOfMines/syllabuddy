@@ -88,7 +88,7 @@ export default function Home() {
 					(<Link key={`COURSEID${course["id"]}`} href={`syllabus/${course["id"]}`} className={styles.gridItem}>
 							<h4>{course["Course Number"]}</h4>
 							<p>{course["Course Name"]}</p>
-							<p>
+							<p className={styles.lightText}>
 								{`${course["Semester"]||""} ${course["Year"]||""}`}
 							</p>
 
