@@ -28,7 +28,14 @@ export default function Home() {
     id({id: user_id}); // identify current user for all track events
     trackPageView() // send page_view event
   })
+	const [searchParams, setSearParams] = useState<Array<any>>([
+		{ param : "Course Name", 		enabled: true  },
+		{ param : "Course Number", 	enabled: true  },
+		{ param : "Professor",			enabled: false }	]);
+	const [sortParams, setSortParams] = useState<Array<string>>([
+		 "Course Number", "Year"]);
 	const [bigSearch, setBigSearch] = useState<string>("");
+	
 	const { isLoading, error, data: coursesData } = useQuery(
 		{
 			queryKey: "courseData", 
@@ -40,16 +47,22 @@ export default function Home() {
 		}
 	);
 	
-	const coursesDataFiltered = coursesData?.filter((course: any) => isSearchResult(course, bigSearch));
+	const coursesDataFiltered = coursesData?.filter((course: any) => isSearchResult(course, bigSearch, searchParams));
 	// TODO: make sorting modular
 	coursesDataFiltered?.sort((a: any, b: any) => {
-		const strA = a["Course Number"].toLowerCase();
-		const strB = b["Course Number"].toLowerCase();
-		if(a["Year"] < b["Year"]) return 1;
-		if(a["Year"] > b["Year"]) return -1;
-		if (strA > strB) return 1;
-		if (strA < strB) return -1;
+		for (let i = 0; i < sortParams.length; i++) {
+			const param = sortParams[i];
+			if (a[param] > b[param]) return 1;
+			if (a[param] < b[param]) return -1;
+		}
 		return 0;
+		// const strA = a["Course Number"].toLowerCase();
+		// const strB = b["Course Number"].toLowerCase();
+		// if(a["Year"] < b["Year"]) return 1;
+		// if(a["Year"] > b["Year"]) return -1;
+		// if (strA > strB) return 1;
+		// if (strA < strB) return -1;
+
 	});
 
 	return (
