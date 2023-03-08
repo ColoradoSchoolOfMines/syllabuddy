@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Advent+Pro:wght@400;600&display=swap');
 
-:root {
+:root, html[data-theme=light] {
+  color-scheme: light;
   --var-background: rgb(239, 241, 243);
   --var-background-search: rgb(255, 255, 255);
 
@@ -12,7 +13,7 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root, html[data-theme=dark] {
     color-scheme: dark;
     --var-background: rgb(39, 39, 39);
     --var-background-search: rgb(23, 23, 23);
