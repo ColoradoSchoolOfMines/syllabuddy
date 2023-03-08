@@ -1,5 +1,5 @@
 .headerComponent {
-	background: $primary;
+	background: var(--var-primary);
 	.header{
 		margin: auto; //center the header
 		padding: 10px;
@@ -24,11 +24,11 @@
 		.searchContainer{
 			z-index: 999;
 			border-radius: $border-radius;
-			background: $search-bg;
+			background: var(--var-background-search);
 			outline: $card-border;
 			width: 30%;
 			> input{
-				background: $search-bg;
+				background: var(--var-background-search);
 				display: inline;
 				padding: 5px;
 				border: none;
@@ -47,8 +47,20 @@
 				transition: all 0.18s;
 			}
 			> .searchResults:hover {
-				background: $card-bg;
+				background: var(--var-card-bg);
 			}
+		}
+
+		.colorSchemeIcon {
+			// color: #fff;
+			padding: 6px;
+			opacity: 0.5;
+			cursor: pointer;
+			transition: all 0.18s;
+		}
+
+		.colorSchemeIcon:hover, .colorSchemeIcon:focus {
+			opacity: 1;
 		}
 	}
 }

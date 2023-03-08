@@ -9,7 +9,7 @@
 		> .searchContainerInner {
 			position: relative;
 			> input{
-				background: $search-bg;
+				background: var(--var-background-search);
 				display: inline;
 				padding: 10px;
 				padding-right: 32px;
@@ -51,17 +51,17 @@
 		> .gridItem{
 			font-family: $system-font;
 			padding: 10px;
-			background: $card-bg;
+			background: var(--var-card-bg);
 			border-radius: $border-radius;
 			border: $card-border;
 			margin: 10px;
 			transition: all 0.18s;
 		}
 		> .gridItem:hover{
-			background: darken($card-bg, 8%);
+			background: var(--var-card-bg-hover);
 		}
 		> .gridItem:active{
-			background: darken($card-bg, 16%);
+			background: var(--var-card-bg-active);
 		}
 	}
 	@media only screen and (max-width: 720px) {
