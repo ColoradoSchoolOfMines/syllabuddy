@@ -40,23 +40,24 @@ function SearchBar({coursesData} : {coursesData?: Array<any>}) {
 }
 
 function ColorSchemeController() {
-	let [hideDebug, setDebug] = useState(true);
-	useEffect(() => {
-		setDebug(globalThis?.location?.search.indexOf('debug') === -1);
-	}, []);
-	if (hideDebug) {
-		return <></>;
-	}
+
+	// let [hideDebug, setDebug] = useState(true);
+	// useEffect(() => {
+	// 	setDebug(globalThis?.location?.search.indexOf('debug') === -1);
+	// }, []);
+	// if (hideDebug) {
+	// 	return <></>;
+	// }
 
 	return (
-		<>
+		<div>
 			<Image title="Switch to dark mode" alt="" tabIndex={0} className={styles.colorSchemeIcon} onClick={() => {
 				document.documentElement.setAttribute("data-theme", "dark");
 			}} width="40" height="40" src="/icon-dark.svg"></Image>
 			<Image title="Switch to light mode" alt="" tabIndex={0} className={styles.colorSchemeIcon} onClick={() => {
 				document.documentElement.setAttribute("data-theme", "light");
 			}} width="40" height="40" src="/icon-light.svg"></Image>
-		</>
+		</div>
 	);
 }
 

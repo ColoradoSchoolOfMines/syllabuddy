@@ -7,7 +7,7 @@ $max-width: 1200px;
 $secondary: #66a8f383;
 
 // Cards
-$card-border: 1px solid #000;
+$card-border: var(--var-card-border);
 
 // Fonts
 $system-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
