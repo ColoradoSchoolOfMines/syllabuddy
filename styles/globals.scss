@@ -31,7 +31,7 @@
     --var-card-bg-active: rgb(73, 99, 113);
     --var-card-border: 1px solid rgb(115, 115, 115);
 
-    --var-iframe-filter: invert(1);
+    --var-iframe-filter: invert(1) hue-rotate(180deg);
     
     --var-display-darkicon: none;
     --var-display-lighticon: inline;
