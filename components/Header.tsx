@@ -10,9 +10,7 @@ function SearchBar({coursesData} : {coursesData?: Array<any>}) {
 	const hideSearchBar = router.pathname === '/';
 	const [search, setSearch] = useState('');
 
-	if (hideSearchBar) {
-		return <></>;
-	}
+	if (hideSearchBar) return <></>;
 
 	const coursesDataFiltered = coursesData?.filter((course: any) => isSearchResult(course, search));
 	coursesDataFiltered?.sort((a: any, b: any) => {
@@ -31,7 +29,7 @@ function SearchBar({coursesData} : {coursesData?: Array<any>}) {
 				search != "" && 
 				coursesDataFiltered?.map((course : any) => (
 				<Link key={`LILSEARCHRESULT${course["id"]}`} 
-				href={`syllabus?id=${course["id"]}`}
+				href={`${course["id"]}`}
 				className={styles.searchResults}>
 					<b>{course["Course Number"]}</b>: {course["Course Name"]}</Link>
 				))
