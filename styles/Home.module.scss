@@ -1,14 +1,17 @@
 .main {
-	> .searchContainer {
+	>.searchContainer {
 		margin: 30px auto 20px;
 		max-width: 600px;
+
 		@media only screen and (max-width: 720px) {
 			padding-left: 10px;
 			padding-right: 10px;
 		}
-		> .searchContainerInner {
+
+		>.searchContainerInner {
 			position: relative;
-			> input{
+
+			>input {
 				background: var(--var-background-search);
 				display: inline;
 				padding: 10px;
@@ -17,7 +20,8 @@
 				border: $card-border;
 				width: 100%;
 			}
-			.searchIcon{
+
+			.searchIcon {
 				display: inline;
 				position: absolute;
 				right: 4px;
@@ -25,30 +29,40 @@
 			}
 		}
 	}
-	> .sortPanel{
+
+	>.sortPanel {
 		font-family: $system-font;
 		justify-content: center;
 		display: flex;
 		// background: red;
 		gap: 10px;
 		margin-bottom: 10px;
-		> div{
-			> select{
+
+		>div {
+			>select {
 				// 
 			}
-			> div{
+
+			>div {
 				padding-left: 5px;
 				cursor: pointer;
 				display: inline-block;
 			}
 		}
 	}
-	> .grid {
+
+	>.grid {
 		display: grid;
 		grid-template-columns: repeat(3, 1fr);
+
+		@media only screen and (max-width: 720px) {
+			grid-template-columns: repeat(2, 1fr);
+		}
+
 		max-width: $max-width;
 		margin: auto;
-		> .gridItem{
+
+		>.gridItem {
 			font-family: $system-font;
 			padding: 10px;
 			background: var(--var-card-bg);
@@ -56,19 +70,17 @@
 			border: $card-border;
 			margin: 10px;
 			transition: all 0.18s;
-		}
-		> .gridItem:hover{
-			background: var(--var-card-bg-hover);
-		}
-		> .gridItem:active{
-			background: var(--var-card-bg-active);
-		}
-	}
-	@media only screen and (max-width: 720px) {
-		> .grid {
-			grid-template-columns: repeat(2, 1fr);
+
+			&:hover {
+				background: var(--var-card-bg-hover);
+			}
+
+			&:active {
+				background: var(--var-card-bg-active);
+			}
 		}
 	}
+
 	.lightText {
 		opacity: 0.72;
 	}

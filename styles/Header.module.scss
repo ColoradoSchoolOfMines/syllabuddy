@@ -11,14 +11,13 @@
 		> nav{
 			display: flex;
 			justify-content: space-between;
-			>h1 {
+			> h1 {
 				// slightly less jank!!
 				font-size: 1.75rem;
 				font-family: $accent-font;
 				height: 40px;
 				display: flex;
 				align-items: center;
-
 			}
 		}
 		.searchContainer{
@@ -68,6 +67,5 @@
 				opacity: 1;
 			}
 		}
-
 	}
 }
