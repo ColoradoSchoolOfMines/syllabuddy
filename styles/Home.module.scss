@@ -25,6 +25,24 @@
 			}
 		}
 	}
+	> .sortPanel{
+		font-family: $system-font;
+		justify-content: center;
+		display: flex;
+		// background: red;
+		gap: 10px;
+		margin-bottom: 10px;
+		> div{
+			> select{
+				// 
+			}
+			> div{
+				padding-left: 5px;
+				cursor: pointer;
+				display: inline-block;
+			}
+		}
+	}
 	> .grid {
 		display: grid;
 		grid-template-columns: repeat(3, 1fr);

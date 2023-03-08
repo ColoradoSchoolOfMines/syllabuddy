@@ -32,8 +32,10 @@ export default function Home() {
 		{ param : "Course Name", 		enabled: true  },
 		{ param : "Course Number", 	enabled: true  },
 		{ param : "Professor",			enabled: false }	]);
-	const [sortParams, setSortParams] = useState<Array<string>>([
-		 "Course Number", "Year"]);
+	const [sortParams, setSortParams] = useState<Array<any>>([
+		{ param : "Year", 					inverted: true  },
+		{ param : "Course Number", 	inverted: false  }]);
+	// console.log(sortParams)
 	const [bigSearch, setBigSearch] = useState<string>("");
 	
 	const { isLoading, error, data: coursesData } = useQuery(
@@ -46,14 +48,15 @@ export default function Home() {
 			//it will only refetch if the page is open for 3 hours
 		}
 	);
-	
+	const sortFilterValues = coursesData ? Object.keys(coursesData[0]).slice(3).sort() : [];
 	const coursesDataFiltered = coursesData?.filter((course: any) => isSearchResult(course, bigSearch, searchParams));
 	// TODO: make sorting modular
 	coursesDataFiltered?.sort((a: any, b: any) => {
 		for (let i = 0; i < sortParams.length; i++) {
-			const param = sortParams[i];
-			if (a[param] > b[param]) return 1;
-			if (a[param] < b[param]) return -1;
+			const param = sortParams[i].param;
+			const invertMultiplier = sortParams[i].inverted ? -1 : 1;
+			if (a[param] > b[param]) return 1 * invertMultiplier
+			if (a[param] < b[param]) return -1 * invertMultiplier;
 		}
 		return 0;
 		// const strA = a["Course Number"].toLowerCase();
@@ -82,6 +85,7 @@ export default function Home() {
 			<Header coursesData={coursesData}/>
 			<main className={styles.main}>
 				<BigSearch value={bigSearch} setValue={setBigSearch}/>
+				{sortPanel(sortFilterValues, sortParams, setSortParams)}
 				<div className={styles.grid}>
 					{/* TODO: show skeleton screen before content is loaded */}
 					{coursesDataFiltered?.map(course => (
@@ -91,9 +95,6 @@ export default function Home() {
 							<p className={styles.lightText}>
 								{`${course["Semester"]||""} ${course["Year"]||""}`}
 							</p>
-
-							
-					
 					</Link>)
 					))}
 					<Link href={'request'} className={styles.gridItem}>
@@ -104,5 +105,35 @@ export default function Home() {
 			</main>
 			<Footer />
 		</>
+	)
+}
+
+function updateParam(oldParams: Array<any>, setParams: any, targetIdx: number){
+	return (value: string) => {
+		setParams(
+			oldParams.map((p, i) => i === targetIdx ? {...p, param: value} : p )
+		)
+	}
+}
+function sortPanel(sortFilterValues: Array<string>, params: Array<any>, setParams: any){
+	return <div className={styles.sortPanel}> Sort by 
+		{params.map((searchParam, idx) => {
+			return <div key={`searchdropdown${idx}`}>
+				{
+					select(sortFilterValues, searchParam.param, updateParam(params, setParams, idx))
+				}	
+				<div onClick={() => setParams(
+					params.map((p, i) => i === idx ? {...p, inverted: !p.inverted} : p )
+				)}> 
+				{searchParam.inverted ? "↑":"↓"}</div>
+				</div>
+		})}
+		</div>
+}
+function select(sortFilterValues : Array<string>, state: string, setState: any){
+	return (
+	<select value={state} onChange={ e => setState(e.target.value) }>
+		{sortFilterValues.map((value: string) => (<option value={value} key={`${value}`}>{value}</option>))}
+	</select> 
 	)
 }
