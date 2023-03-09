@@ -29,6 +29,10 @@ export default function Syllabus() {
     id({id: user_id}); // identify current user for all track events
     trackPageView() // send page_view event
   })
+	
+	const onClick = (btnName: string) => {
+    track('btn_click', {btn: btnName}); // send btn_click event with button name payload on click
+  }
 
 	const router = useRouter();
 	const { syllabus_id } = router.query;
@@ -51,7 +55,17 @@ export default function Syllabus() {
 			<p className={styles.date}>{courseData["Semester"]||""} {courseData["Year"]||""}</p>
 		</div> : "Loading...";
 	const downloadLink = courseData ? createDownloadLink(courseData["Syllabus Upload"]) : ""
-	const downloadButton = <button className={styles.downloadButton} type="button" onClick={() => window.location.href = downloadLink}>Download PDF</button>
+	const downloadButton = (
+	<button className={styles.downloadButton} type="button" 
+	onClick={
+		() => {
+				onClick("Download_PDF");
+				window.location.href = downloadLink
+			}
+		}>
+		Download PDF
+	</button>
+	)
 	const syllabusLink = courseData ? parseSyllabusURL(courseData["Syllabus Upload"]) : ""
 	
 	return <>

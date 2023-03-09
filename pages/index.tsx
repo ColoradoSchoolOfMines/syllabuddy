@@ -14,8 +14,8 @@ import { useJitsu } from "@jitsu/react";
 import { v4 as uuidv4 } from 'uuid';
 import { useQuery } from "react-query";
 import { fetchCourses } from '@/fetch-functions';
-const inter = Inter({ subsets: ['latin'] })
 
+const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
 	const {id, track, trackPageView} = useJitsu(); // import methods from useJitsu hook
