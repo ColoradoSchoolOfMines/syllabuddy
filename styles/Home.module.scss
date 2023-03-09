@@ -1,3 +1,36 @@
+.exp_h {
+	margin-top: 20vh;
+	margin-bottom: 10vh;
+	font-size: 40px;
+	text-align: center;
+}
+
+.exp_div {
+	color: rgb(147, 203, 255);
+	text-align: center;
+	font-family: 'Segoe UI', sans-serif;
+	margin-bottom: 20vh;
+	cursor: pointer;
+	padding: 20px 0;
+}
+
+.exp_div p {
+	display: none;
+}
+
+.exp_div:focus {
+	border: 1px solid #fff;
+}
+
+.exp_div:focus p {
+	display: block;
+}
+
+.exp_div2 {
+	text-align: center;
+	margin-bottom: 10vh;
+}
+
 .main {
 	>.searchContainer {
 		margin: 30px auto 20px;

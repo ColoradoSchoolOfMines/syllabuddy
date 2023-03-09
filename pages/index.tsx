@@ -84,7 +84,15 @@ export default function Home() {
 			
 			<Header coursesData={coursesData}/>
 			<main className={styles.main}>
+				<h1 className={styles.exp_h}>🦑 Syllabuddies</h1>
 				<BigSearch value={bigSearch} setValue={setBigSearch}/>
+				<div tabIndex={0} className={styles.exp_div}>
+					<h3>What is syllabuddies?</h3>
+					<p>Syllabuddies is a cool website where you can do cool things. You can look things up, request things, upload things, blah blah blah.</p>
+				</div>
+				<div className={styles.exp_div2}>
+					<p>Or, scroll down to browse all courses</p>
+				</div>
 				{sortPanel(sortFilterValues, sortParams, setSortParams)}
 				<div className={styles.grid}>
 					{/* TODO: show skeleton screen before content is loaded */}
