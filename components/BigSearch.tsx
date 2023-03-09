@@ -3,7 +3,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 export default function BigSearch({value, setValue} : {value: string, setValue: any}) {
 	return (
-		<div Style={"text-align: center"} className={styles.searchContainer}>
+		<div className={styles.searchContainer}>
 			<div className={styles.searchContainerInner}>
 				<input
 					placeholder="Filter by course department, number, and/or name..."
@@ -12,7 +12,7 @@ export default function BigSearch({value, setValue} : {value: string, setValue: 
 				/>
 				<Image alt="" className={styles.searchIcon} width="30" height="30" src="icon-search.svg"></Image>
 			</div>
-			<button Style={"padding: 5px 10px; margin-top: 10px; background: none; border: none; cursor: pointer; opacity: 0.5"}>Advanced Options</button>
+			<button>Advanced Options</button>
 		</div>
 	)
 }
