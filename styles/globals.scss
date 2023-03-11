@@ -2,15 +2,15 @@
 
 :root, html[data-theme=light] {
   color-scheme: light;
-  --var-background: rgb(239, 241, 243);
+  --var-background: rgb(250, 250, 250);
   --var-background-search: rgb(255, 255, 255);
 
   --var-primary: rgb(104, 169, 243);
 
-  --var-card-bg: rgb(221, 230, 235);
-  --var-card-bg-hover: rgb(202, 218, 226);
-  --var-card-bg-active: rgb(181, 201, 212);
-  --var-card-border: 1px solid rgb(0, 0, 0);
+  --var-card-bg: rgba(255,255,255);
+  --var-card-bg-hover: rgba(104, 169, 243, 0.08);
+  --var-card-bg-active: rgba(104, 169, 243, 0.55);
+  --var-card-border: 1px solid rgb(216, 216, 216);
 
   --var-iframe-filter: none;
 
@@ -21,15 +21,16 @@
 @media (prefers-color-scheme: dark) {
   :root, html[data-theme=dark] {
     color-scheme: dark;
-    --var-background: rgb(24, 24, 24);
-    --var-background-search: rgb(24, 24, 24);
+    --var-background: rgb(12, 12, 12);
+    --var-background-search: rgb(0, 0, 0);
 
     --var-primary: rgb(26, 83, 148);
 
-    --var-card-bg: rgb(39, 43, 44);
-    --var-card-bg-hover: rgb(66, 81, 89);
-    --var-card-bg-active: rgb(73, 99, 113);
-    --var-card-border: 1px solid rgb(115, 115, 115);
+    --var-card-bg: rgb(0, 0, 0);
+    --var-card-bg-hover: rgba(26, 83, 148, 0.08);
+    --var-card-bg-active: rgba(26, 83, 148, 0.28);
+
+    --var-card-border: 1px solid rgb(50, 50, 50);
 
     --var-iframe-filter: invert(1) hue-rotate(180deg);
     

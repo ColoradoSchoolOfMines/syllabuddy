@@ -89,7 +89,14 @@ export default function Home() {
 				<div className={styles.grid}>
 					{/* TODO: show skeleton screen before content is loaded */}
 					{coursesDataFiltered?.map(course => (
-					(<Link key={`COURSEID${course["id"]}`} href={`syllabus/${course["id"]}`} className={styles.gridItem}>
+					(<Link className={styles.gridItem} key={`COURSEID${course["id"]}`} 
+					href={`syllabus/${course["id"]}`} 
+					// style={{"filter": 
+					// `hue-rotate(${parseInt(
+					// 	course["Course Number"].substring(0,4)
+					// 	,36)/36
+					// 	}deg)`}}
+					>
 							<h4>{course["Course Number"]}</h4>
 							<p>{course["Course Name"]}</p>
 							<p className={styles.lightText}>
