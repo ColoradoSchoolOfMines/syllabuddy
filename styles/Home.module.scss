@@ -1,8 +1,17 @@
 .main {
-	>.landingHeader {
-		height: calc(40vh - 60px);
+	>.hideLandingDivs {
+		opacity: 0;
+		height: 0 !important;
+	}
+
+	>.landingHeader, >.landingAbout {
 		overflow: hidden;
 		display: flex;
+		transition: height 0.36s, opacity 0.36s;
+	}
+
+	>.landingHeader {
+		height: calc(40vh - 60px);
 		align-items: flex-end;
 	}
 	
@@ -15,7 +24,6 @@
 
 	>.landingAbout {
 		height: calc(60vh - 160px);
-		display: flex;
 		flex-direction: column;
 		flex-grow: 100%;
 	}
