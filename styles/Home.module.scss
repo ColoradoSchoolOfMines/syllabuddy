@@ -1,16 +1,43 @@
 .main {
 	>.landingHeader {
 		height: calc(40vh - 60px);
-		position: relative;
+		overflow: hidden;
 		display: flex;
 		align-items: flex-end;
 	}
 	
 	>.landingHeader h1 {
-		font-family: $accent-font;
 		width: 100%;
+		font-family: $accent-font;
 		text-align: center;
 		font-size: 2.4rem;
+	}
+
+	>.landingAbout {
+		height: calc(60vh - 160px);
+		display: flex;
+		flex-direction: column;
+		flex-grow: 100%;
+	}
+	
+	>.landingAbout h2 {
+		font-family: $system-font;
+		font-weight: 500;
+		margin-top: 20px;
+		color: var(--var-accent);
+		text-align: center;
+		font-size: 1.2rem;
+	}
+
+	>.landingAbout .filler {
+		height: 100%;
+	}
+
+	>.landingAbout p {
+		margin-bottom: 20px;
+		text-align: center;
+		vertical-align: bottom;
+		opacity: 0.6;
 	}
 
 	.searchPanel {

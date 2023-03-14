@@ -15,6 +15,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { useQuery } from "react-query";
 import { fetchCourses } from '@/fetch-functions';
 import LandingHeader from '@/components/LandingHeader'
+import LandingAbout from '@/components/LandingAbout'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -91,6 +92,7 @@ export default function Home() {
 					<BigSearch value={bigSearch} setValue={setBigSearch}/>
 					{sortPanel(sortFilterValues, sortParams, setSortParams)}
 				</div>
+				<LandingAbout shown={showLanding}/>
 				<div className={styles.grid}>
 					{/* TODO: show skeleton screen before content is loaded */}
 					{coursesDataFiltered?.map(course => (
