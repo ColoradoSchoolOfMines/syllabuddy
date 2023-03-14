@@ -1,56 +1,75 @@
 .main {
-	>.searchContainer {
-		margin: 30px auto 20px;
-		max-width: 600px;
-
-		@media only screen and (max-width: 720px) {
-			padding-left: 10px;
-			padding-right: 10px;
-		}
-
-		>.searchContainerInner {
-			position: relative;
-
-			>input {
-				background: var(--var-background-search);
-				display: inline;
-				padding: 10px;
-				padding-right: 32px;
-				border-radius: $border-radius;
-				border: $card-border;
-				width: 100%;
-			}
-
-			.searchIcon {
-				display: inline;
-				position: absolute;
-				right: 4px;
-				top: 4px;
-				filter: var(--var-iframe-filter);
-			}
-		}
-	}
-
-	>.sortPanel {
-		font-family: $system-font;
-		justify-content: center;
+	>.landingHeader {
+		height: calc(40vh - 60px);
+		position: relative;
 		display: flex;
-		// background: red;
-		gap: 10px;
-		margin-bottom: 10px;
+		align-items: flex-end;
+	}
+	
+	>.landingHeader h1 {
+		font-family: $accent-font;
+		width: 100%;
+		text-align: center;
+		font-size: 2.4rem;
+	}
 
-		>div {
-			>select {
-				// 
+	.searchPanel {
+		height: 90px;
+		margin: 15px 0;
+
+			>.searchContainer {
+				margin: 30px auto 20px;
+				max-width: 600px;
+		
+				@media only screen and (max-width: 720px) {
+					padding-left: 10px;
+					padding-right: 10px;
+				}
+		
+				>.searchContainerInner {
+					position: relative;
+		
+					>input {
+						background: var(--var-background-search);
+						display: inline;
+						padding: 10px;
+						padding-right: 32px;
+						border-radius: $border-radius;
+						border: $card-border;
+						width: 100%;
+					}
+		
+					.searchIcon {
+						display: inline;
+						position: absolute;
+						right: 4px;
+						top: 4px;
+						filter: var(--var-iframe-filter);
+					}
+				}
 			}
-
-			>div {
-				padding-left: 5px;
-				cursor: pointer;
-				display: inline-block;
+		
+			>.sortPanel {
+				font-family: $system-font;
+				justify-content: center;
+				display: flex;
+				// background: red;
+				gap: 10px;
+				margin-bottom: 10px;
+		
+				>div {
+					>select {
+						// 
+					}
+		
+					>div {
+						padding-left: 5px;
+						cursor: pointer;
+						display: inline-block;
+					}
+				}
 			}
 		}
-	}
 
 	>.grid {
 		display: grid;

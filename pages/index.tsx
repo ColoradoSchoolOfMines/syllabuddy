@@ -14,6 +14,7 @@ import { useJitsu } from "@jitsu/react";
 import { v4 as uuidv4 } from 'uuid';
 import { useQuery } from "react-query";
 import { fetchCourses } from '@/fetch-functions';
+import LandingHeader from '@/components/LandingHeader'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -65,8 +66,9 @@ export default function Home() {
 		// if(a["Year"] > b["Year"]) return -1;
 		// if (strA > strB) return 1;
 		// if (strA < strB) return -1;
-
 	});
+
+	let showLanding = (bigSearch === '');
 
 	return (
 		<>
@@ -84,8 +86,11 @@ export default function Home() {
 			
 			<Header coursesData={coursesData}/>
 			<main className={styles.main}>
-				<BigSearch value={bigSearch} setValue={setBigSearch}/>
-				{sortPanel(sortFilterValues, sortParams, setSortParams)}
+				<LandingHeader shown={showLanding}/>
+				<div className={styles.searchPanel}>
+					<BigSearch value={bigSearch} setValue={setBigSearch}/>
+					{sortPanel(sortFilterValues, sortParams, setSortParams)}
+				</div>
 				<div className={styles.grid}>
 					{/* TODO: show skeleton screen before content is loaded */}
 					{coursesDataFiltered?.map(course => (
