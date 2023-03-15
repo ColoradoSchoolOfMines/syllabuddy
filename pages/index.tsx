@@ -104,16 +104,16 @@ export default function Home() {
 					// 	,36)/36
 					// 	}deg)`}}
 					>
-							<h4>{course["Course Number"]}</h4>
-							<p>{course["Course Name"]}</p>
-							<p className={styles.lightText}>
-								{`${course["Semester"]||""} ${course["Year"]||""}`}
-							</p>
+						<h4>{course["Course Number"]}</h4>
+						<p>{course["Course Name"]}</p>
+						<p className={styles.lightText}>
+							{`${course["Semester"]||""} ${course["Year"]||""}`}
+						</p>
 					</Link>)
 					))}
 					<Link href={'request'} className={styles.gridItem}>
-							<h4>Can't find a course?</h4>
-							Request a syllabus!
+						<h4>Can't find a course?</h4>
+						Request a syllabus!
 					</Link>
 				</div>
 			</main>
