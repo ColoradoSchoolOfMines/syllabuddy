@@ -13,15 +13,13 @@
 	>.landingHeader {
 		height: calc(40vh - 60px);
 		align-items: flex-end;
+		> h1 {
+			width: 100%;
+			font-family: $accent-font;
+			text-align: center;
+			font-size: 2.4rem;
+		}
 	}
-	
-	>.landingHeader h1 {
-		width: 100%;
-		font-family: $accent-font;
-		text-align: center;
-		font-size: 2.4rem;
-	}
-
 	>.landingAbout {
 		height: calc(60vh - 160px);
 		flex-direction: column;

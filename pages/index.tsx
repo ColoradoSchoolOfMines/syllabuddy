@@ -50,13 +50,15 @@ export default function Home() {
 			//it will only refetch if the page is open for 3 hours
 		}
 	);
-	const sortFilterValues = coursesData ? Object.keys(coursesData[0]).slice(3).sort() : [];
+	// Only show relevant sorting options
+	const sortFilterValues = (coursesData ? Object.keys(coursesData[0]).slice(3).sort() : []).concat("None");
 	const coursesDataFiltered = coursesData?.filter((course: any) => isSearchResult(course, bigSearch, searchParams));
 	// TODO: make sorting modular
 	coursesDataFiltered?.sort((a: any, b: any) => {
 		for (let i = 0; i < sortParams.length; i++) {
 			const param = sortParams[i].param;
 			const invertMultiplier = sortParams[i].inverted ? -1 : 1;
+			if(param == "None") continue
 			if (a[param] > b[param]) return 1 * invertMultiplier
 			if (a[param] < b[param]) return -1 * invertMultiplier;
 		}
