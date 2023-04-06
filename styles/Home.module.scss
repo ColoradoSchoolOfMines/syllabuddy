@@ -4,7 +4,7 @@
 		height: 0 !important;
 	}
 
-	>.landingHeader, >.landingAbout {
+	>.landingHeader, >.landingAbout, .landingAboutDesc {
 		overflow: hidden;
 		display: flex;
 		transition: height 0.36s, opacity 0.36s;
@@ -29,15 +29,41 @@
 	>.landingAbout h2 {
 		font-family: $system-font;
 		font-weight: 500;
-		margin-top: 20px;
+		margin: 0 20px;
 		color: var(--var-accent);
 		text-align: center;
 		font-size: 1.2rem;
+	}
+
+	>.landingAbout h2 a {
+		margin: 0 10px;
 		cursor: pointer;
 	}
 
 	>.landingAbout .filler {
 		height: 100%;
+	}
+
+	>.landingAbout .landingAboutDesc {
+		overflow: visible;
+		padding: 5px 0 10px;
+		margin: auto;
+		margin-top: 20px;
+		width: 100%;
+		max-width: 720px;
+		border: 1px solid var(--var-accent);
+		text-align: center;
+	}
+
+	>.landingAbout .landingAboutDesc p {
+		text-align: center;
+		width: 100%;
+		opacity: 1;
+		margin: 0;
+	}
+
+	.landingAboutDesc.hideDiv {
+		display: none;
 	}
 
 	>.landingAbout p {
@@ -90,7 +116,12 @@
 				// background: red;
 				gap: 10px;
 				margin-bottom: 10px;
-		
+				
+				.sortPanelButton {
+					width: 16px;
+					text-align: center;
+				}
+
 				>div {
 					>select {
 						// 

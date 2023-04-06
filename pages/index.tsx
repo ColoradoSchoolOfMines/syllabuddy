@@ -138,10 +138,10 @@ function sortPanel(sortFilterValues: Array<string>, params: Array<any>, setParam
 				{
 					select(sortFilterValues, searchParam.param, updateParam(params, setParams, idx))
 				}	
-				<div onClick={() => setParams(
+				<div className={styles.sortPanelButton} onClick={() => setParams(
 					params.map((p, i) => i === idx ? {...p, inverted: !p.inverted} : p )
 				)}> 
-				{searchParam.inverted ? "↑":"↓"}</div>
+				{searchParam.inverted ? "↑ ":"↓"}</div>
 				</div>
 		})}
 		</div>
