@@ -76,7 +76,7 @@ export default function Header({coursesData} : {coursesData?: Array<any>}) {
 						router.pathname === '/' && 
 						<>
 							<div className={styles.navItem}><Link href="https://docs.google.com/forms/d/e/1FAIpQLScx6kpBzIJWUOSbspixLrMWfeVh6C6xHJFfZ_NvEsxSTo4QKg/viewform">Contribute</Link></div>
-							<div className={styles.navItem}><Link href="http://localhost:3420/request">Request</Link></div>
+							<div className={styles.navItem}><Link href="/request">Request</Link></div>
 						</>
 						}
 						<ColorSchemeController/>
