@@ -64,14 +64,24 @@ function ColorSchemeController() {
 export default function Header({coursesData} : {coursesData?: Array<any>}) {
 	
 	// TODO: limit number of search results
-
+	const router = useRouter();
+	const hideSearchBar = router.pathname === '/';
 	return (
 		<header className={styles.headerComponent}>
 			<div className={styles.header}>
 				<nav>
 					<h1><Link href="/">Syllabuddies</Link></h1>
-					<ColorSchemeController/>
-					<SearchBar coursesData={coursesData}/>
+					<div className={styles.rightSideItems}>
+						{
+						router.pathname === '/' && 
+						<>
+							<div className={styles.navItem}><Link href="https://docs.google.com/forms/d/e/1FAIpQLScx6kpBzIJWUOSbspixLrMWfeVh6C6xHJFfZ_NvEsxSTo4QKg/viewform">Contribute</Link></div>
+							<div className={styles.navItem}><Link href="http://localhost:3420/request">Request</Link></div>
+						</>
+						}
+						<ColorSchemeController/>
+						<SearchBar coursesData={coursesData}/>
+					</div>
 				</nav>
 			</div>
 		</header>

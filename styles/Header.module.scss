@@ -19,6 +19,20 @@
 				display: flex;
 				align-items: center;
 			}
+			> .rightSideItems{
+				width: 100%;
+				// background: blue;
+				display: flex;
+				gap: 10px;
+				height: 40px;
+				justify-content: flex-end;
+				>.navItem {
+					font-family: $system-font;
+					display: flex;
+					align-items: center;
+				}
+			}
+
 		}
 		.searchContainer{
 			z-index: 999;
@@ -50,7 +64,7 @@
 			}
 		}
 
-		div > .colorSchemeIcon {
+		.colorSchemeIcon {
 			// color: #fff;
 			padding: 6px;
 			opacity: 0.5;
