@@ -18,7 +18,7 @@ export default function LandingAbout({shown}: {shown: boolean}) {
       </h2>
       <div className={`${styles.landingAboutDesc} ${showDescription?'':styles.hideDiv}`}>
         <p>
-          Syllabuddies is a way to quickly find syllabi from the Colorado School of Mines to help students make more informed decisions on class selection. The syllabi we have on our site are contributed by students and faculty at Mines.
+          Syllabuddies is a way to quickly find syllabi from the Colorado School of Mines. Our goal is to help students make more informed decisions on class selection. The syllabi on our site are contributed by students and faculty at Mines.
         </p>
       </div>
       <div className={styles.filler}></div>
