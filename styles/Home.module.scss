@@ -1,4 +1,5 @@
 .main {
+	// hide extra padding and about text when the user types in the search bar
 	>.hideLandingDivs {
 		opacity: 0;
 		height: 0 !important;
@@ -20,58 +21,55 @@
 			font-size: 2.4rem;
 		}
 	}
-	>.landingAbout {
+
+	>.landingAbout{
 		height: calc(60vh - 160px);
 		flex-direction: column;
 		flex-grow: 100%;
-	}
-	
-	>.landingAbout h2 {
-		font-family: $system-font;
-		font-weight: 500;
-		margin: 0 20px;
-		color: var(--var-accent);
-		text-align: center;
-		font-size: 1.2rem;
-	}
-
-	>.landingAbout h2 a {
-		margin: 0 10px;
-		cursor: pointer;
-	}
-
-	>.landingAbout .filler {
-		height: 100%;
-	}
-
-	>.landingAbout .landingAboutDesc {
-		overflow: visible;
-		padding: 5px 0 10px;
-		margin: auto;
-		margin-top: 20px;
-		width: 100%;
-		max-width: 720px;
-		border: 1px solid var(--var-accent);
-		text-align: center;
-	}
-
-	>.landingAbout .landingAboutDesc p {
-		text-align: center;
-		width: 100%;
-		opacity: 1;
-		margin: 0;
+		p {
+			margin-bottom: 20px;
+			text-align: center;
+			vertical-align: bottom;
+			opacity: 0.6;
+		}
+		>h2{
+			font-family: $system-font;
+			font-weight: 500;
+			margin: 0 20px;
+			color: var(--var-accent);
+			text-align: center;
+			font-size: 1.2rem;
+			>a {
+				margin: 0 10px;
+				cursor: pointer;
+			}
+		}
+		> .filler{
+			height: 100%;
+		}
+		.landingAboutDesc {
+			> p {
+				text-align: center;
+				width: 100%;
+				opacity: 1;
+				margin: 0;
+			}
+			overflow: visible;
+			padding: 5px 0 10px;
+			margin: auto;
+			margin-top: 20px;
+			width: 100%;
+			max-width: 720px;
+			border: 1px solid var(--var-accent);
+			border-radius: $border-radius;
+			text-align: center;
+		}	
 	}
 
 	.landingAboutDesc.hideDiv {
 		display: none;
 	}
 
-	>.landingAbout p {
-		margin-bottom: 20px;
-		text-align: center;
-		vertical-align: bottom;
-		opacity: 0.6;
-	}
 
 	.searchPanel {
 		height: 90px;
