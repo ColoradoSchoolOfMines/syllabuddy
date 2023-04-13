@@ -16,6 +16,7 @@ import { useQuery } from "react-query";
 import { fetchCourses } from '@/fetch-functions';
 import LandingHeader from '@/components/LandingHeader'
 import LandingAbout from '@/components/LandingAbout'
+import AdvancedSettings from '@/components/AdvancedSettings'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -92,7 +93,7 @@ export default function Home() {
 				<LandingHeader shown={showLanding}/>
 				<div className={styles.searchPanel}>
 					<BigSearch value={bigSearch} setValue={setBigSearch}/>
-					{sortPanel(sortFilterValues, sortParams, setSortParams)}
+					{<AdvancedSettings {...{sortFilterValues, sortParams, setSortParams}} />}
 				</div>
 				<LandingAbout shown={showLanding}/>
 				<div className={styles.grid}>
@@ -121,35 +122,5 @@ export default function Home() {
 			</main>
 			<Footer />
 		</>
-	)
-}
-
-function updateParam(oldParams: Array<any>, setParams: any, targetIdx: number){
-	return (value: string) => {
-		setParams(
-			oldParams.map((p, i) => i === targetIdx ? {...p, param: value} : p )
-		)
-	}
-}
-function sortPanel(sortFilterValues: Array<string>, params: Array<any>, setParams: any){
-	return <div className={styles.sortPanel}> Sort by 
-		{params.map((searchParam, idx) => {
-			return <div key={`searchdropdown${idx}`}>
-				{
-					select(sortFilterValues, searchParam.param, updateParam(params, setParams, idx))
-				}	
-				<div className={styles.sortPanelButton} onClick={() => setParams(
-					params.map((p, i) => i === idx ? {...p, inverted: !p.inverted} : p )
-				)}> 
-				{searchParam.inverted ? "↑ ":"↓"}</div>
-				</div>
-		})}
-		</div>
-}
-function select(sortFilterValues : Array<string>, state: string, setState: any){
-	return (
-	<select value={state} onChange={ e => setState(e.target.value) }>
-		{sortFilterValues.map((value: string) => (<option value={value} key={`${value}`}>{value}</option>))}
-	</select> 
 	)
 }
