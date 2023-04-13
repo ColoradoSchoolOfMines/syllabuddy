@@ -8,8 +8,7 @@ export default function LandingAbout({shown}: {shown: boolean}) {
   return (
     <div className={`${styles.landingAbout} ${shown||styles.hideLandingDivs}`}>
       <h2>
-        <a onMouseEnter={()=>{setShowDescription(true)}}
-           onMouseLeave={()=>{setShowDescription(false)}}
+        <a onClick={()=>{setShowDescription(old => !old)}}
           >
           What is Syllabuddies?
         </a>
@@ -18,7 +17,9 @@ export default function LandingAbout({shown}: {shown: boolean}) {
         </a>
       </h2>
       <div className={`${styles.landingAboutDesc} ${showDescription?'':styles.hideDiv}`}>
-        <p>Syllabuddies is a way to quickly find syllabi for Colorado School of Mines courses so that you can make more informed decisions about which courses to register for.</p>
+        <p>
+          Syllabuddies is a way to quickly find syllabi from the Colorado School of Mines to help students make more informed decisions on class selection. The syllabi we have on our site are contributed by students and faculty at Mines.
+        </p>
       </div>
       <div className={styles.filler}></div>
       <p>Search above or scroll down to explore courses</p>
