@@ -15,7 +15,10 @@ export default function LandingAbout({ shown }: { shown: boolean }) {
         <br />
         If you are interested in contributing and or learning full stack web
         development to help bring back syllabuddies, join the Mines ACM discord
-        and ping @Shane!
+        and ping @Shane! You can see what the site used to look like at{" "}
+        <a href="https://old.syllabuddies.pages.dev">
+          old.syllabuddies.pages.dev
+        </a>
       </p>
       <h2 className={styles.minesrocks}>
         You can look at detailed historical course data here:
