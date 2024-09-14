@@ -77,7 +77,7 @@ export default function Home() {
 	return (
 		<>
 			{/* Feedback button */}
-			<Script src="https://w.appzi.io/w.js?token=25eG1"/>
+			{/* <Script src="https://w.appzi.io/w.js?token=25eG1"/> */}
 			{/* Cloudflare */}
 			<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "b120c77ea1084b8ea1f89d3e1d9b8dfa"}'></script>
 			<Head>
@@ -91,34 +91,13 @@ export default function Home() {
 			<Header coursesData={coursesData}/>
 			<main className={styles.main}>
 				<LandingHeader shown={showLanding}/>
-				<div className={styles.searchPanel}>
+
+
+				{/* <div className={styles.searchPanel}>
 					<BigSearch value={bigSearch} setValue={setBigSearch}/>
 					{<AdvancedSettings {...{sortFilterValues, sortParams, setSortParams}} />}
-				</div>
+				</div> */}
 				<LandingAbout shown={showLanding}/>
-				<div className={styles.grid}>
-					{/* TODO: show skeleton screen before content is loaded */}
-					{coursesDataFiltered?.map(course => (
-					(<Link className={styles.gridItem} key={`COURSEID${course["id"]}`} 
-					href={`syllabus/${course["id"]}`} 
-					// style={{"filter": 
-					// `hue-rotate(${parseInt(
-					// 	course["Course Number"].substring(0,4)
-					// 	,36)/36
-					// 	}deg)`}}
-					>
-						<h4>{course["Course Number"]}</h4>
-						<p>{course["Course Name"]}</p>
-						<p className={styles.lightText}>
-							{`${course["Semester"]||""} ${course["Year"]||""}`}
-						</p>
-					</Link>)
-					))}
-					<Link href={'request'} className={styles.gridItem}>
-						<h4>Can't find a course?</h4>
-						Request a syllabus!
-					</Link>
-				</div>
 			</main>
 			<Footer />
 		</>

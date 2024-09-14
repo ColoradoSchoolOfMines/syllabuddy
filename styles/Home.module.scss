@@ -1,171 +1,182 @@
 .main {
-	// hide extra padding and about text when the user types in the search bar
-	>.hideLandingDivs {
-		opacity: 0;
-		height: 0 !important;
-	}
+  // hide extra padding and about text when the user types in the search bar
+  > .hideLandingDivs {
+    opacity: 0;
+    height: 0 !important;
+  }
 
-	>.landingHeader, >.landingAbout, .landingAboutDesc {
-		overflow: hidden;
-		display: flex;
-		transition: height 0.36s, opacity 0.36s;
-	}
+  > .landingHeader,
+  > .landingAbout,
+  .landingAboutDesc {
+    overflow: hidden;
+    display: flex;
+    transition: height 0.36s, opacity 0.36s;
+  }
 
-	>.landingHeader {
-		height: calc(40vh - 60px);
-		align-items: flex-end;
-		> h1 {
-			width: 100%;
-			font-family: $accent-font;
-			text-align: center;
-			font-size: 2.4rem;
-		}
-	}
+  > .landingHeader {
+    height: calc(40vh - 60px);
+    align-items: flex-end;
+    > h1 {
+      width: 100%;
+      font-family: $accent-font;
+      text-align: center;
+      font-size: 2.4rem;
+    }
+  }
 
-	>.landingAbout{
-		height: calc(60vh - 160px);
-		flex-direction: column;
-		flex-grow: 100%;
-		p {
-			margin-bottom: 20px;
-			text-align: center;
-			vertical-align: bottom;
-			opacity: 0.6;
-		}
-		>h2{
-			font-family: $system-font;
-			font-weight: 500;
-			margin: 0 20px;
-			color: var(--var-accent);
-			text-align: center;
-			font-size: 1.2rem;
-			>a {
-				margin: 0 10px;
-				cursor: pointer;
-			}
-		}
-		> .filler{
-			height: 100%;
-		}
-		.landingAboutDesc {
-			> p {
-				text-align: center;
-				width: 100%;
-				opacity: 1;
-				margin: 0;
-			}
-			overflow: visible;
-			padding: 5px 0 10px;
-			margin: auto;
-			margin-top: 20px;
-			width: 100%;
-			max-width: 720px;
-			border: 1px solid var(--var-accent);
-			border-radius: $border-radius;
-			text-align: center;
-		}	
-	}
+  > .landingAbout {
+    height: calc(60vh - 160px);
+    flex-direction: column;
+    flex-grow: 100%;
+    .minesrocks {
+      color: unset;
+      font-size: 2rem;
+      a {
+        color: var(--var-accent);
+        text-decoration: underline;
+      }
+    }
+    p {
+      margin-bottom: 20px;
+      text-align: center;
+      padding: 16px;
+      margin: 16px auto;
+      background: rgba(255, 0, 0, 0.3);
+      max-width: 800px;
+    }
+    > h2 {
+      font-family: $system-font;
+      font-weight: 500;
+      margin: 0 20px;
+      color: var(--var-accent);
+      text-align: center;
+      font-size: 1.2rem;
+      > a {
+        margin: 0 10px;
+        cursor: pointer;
+      }
+    }
+    > .filler {
+      height: 100%;
+    }
+    .landingAboutDesc {
+      > p {
+        text-align: center;
+        width: 100%;
+        opacity: 1;
+        margin: 0;
+      }
+      overflow: visible;
+      padding: 5px 0 10px;
+      margin: auto;
+      margin-top: 20px;
+      width: 100%;
+      max-width: 720px;
+      border: 1px solid var(--var-accent);
+      border-radius: $border-radius;
+      text-align: center;
+    }
+  }
 
-	.landingAboutDesc.hideDiv {
-		display: none;
-	}
+  .landingAboutDesc.hideDiv {
+    display: none;
+  }
 
+  .searchPanel {
+    height: 90px;
+    margin: 15px 0;
 
-	.searchPanel {
-		height: 90px;
-		margin: 15px 0;
+    > .searchContainer {
+      margin: 30px auto 20px;
+      max-width: 600px;
 
-			>.searchContainer {
-				margin: 30px auto 20px;
-				max-width: 600px;
-		
-				@media only screen and (max-width: 720px) {
-					padding-left: 10px;
-					padding-right: 10px;
-				}
-		
-				>.searchContainerInner {
-					position: relative;
-		
-					>input {
-						background: var(--var-background-search);
-						display: inline;
-						padding: 10px;
-						padding-right: 32px;
-						border-radius: $border-radius;
-						border: $card-border;
-						width: 100%;
-					}
-		
-					.searchIcon {
-						display: inline;
-						position: absolute;
-						right: 4px;
-						top: 4px;
-						filter: var(--var-iframe-filter);
-					}
-				}
-			}
-		
-			>.sortPanel {
-				font-family: $system-font;
-				justify-content: center;
-				display: flex;
-				gap: 15px;
-				margin-bottom: 10px;
-				
-				.sortPanelButton {
-					width: 16px;
-					text-align: center;
-				}
+      @media only screen and (max-width: 720px) {
+        padding-left: 10px;
+        padding-right: 10px;
+      }
 
-				>div {
-					>select {
-						// 
-					}
-		
-					>div {
-						padding-left: 5px;
-						cursor: pointer;
-						display: inline-block;
-					}
-				}
-			}
-		}
+      > .searchContainerInner {
+        position: relative;
 
-	>.grid {
-		display: grid;
-		grid-template-columns: repeat(3, 1fr);
+        > input {
+          background: var(--var-background-search);
+          display: inline;
+          padding: 10px;
+          padding-right: 32px;
+          border-radius: $border-radius;
+          border: $card-border;
+          width: 100%;
+        }
 
-		@media only screen and (max-width: 720px) {
-			grid-template-columns: repeat(2, 1fr);
-		}
+        .searchIcon {
+          display: inline;
+          position: absolute;
+          right: 4px;
+          top: 4px;
+          filter: var(--var-iframe-filter);
+        }
+      }
+    }
 
-		max-width: $max-width;
-		margin: auto;
+    > .sortPanel {
+      font-family: $system-font;
+      justify-content: center;
+      display: flex;
+      gap: 15px;
+      margin-bottom: 10px;
 
-		>.gridItem {
-			// filter: hue-rotate(40deg);
-			font-family: $system-font;
-			padding: 10px;
-			background: var(--var-card-bg);
-			border-radius: $border-radius;
-			border: $card-border;
-			// box-shadow: rgba(0, 0, 0, 0.15) 0px 1px 1px;
-			margin: 10px;
-			transition: all 0.18s;
+      .sortPanelButton {
+        width: 16px;
+        text-align: center;
+      }
 
-			&:hover {
-				background: var(--var-card-bg-hover);
-			}
+      > div {
+        > select {
+          //
+        }
 
-			&:active {
-				background: var(--var-card-bg-active);
-			}
-		}
-	}
+        > div {
+          padding-left: 5px;
+          cursor: pointer;
+          display: inline-block;
+        }
+      }
+    }
+  }
 
-	.lightText {
-		opacity: 0.72;
-	}
+  > .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    @media only screen and (max-width: 720px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    max-width: $max-width;
+    margin: auto;
+
+    > .gridItem {
+      // filter: hue-rotate(40deg);
+      font-family: $system-font;
+      padding: 10px;
+      background: var(--var-card-bg);
+      border-radius: $border-radius;
+      border: $card-border;
+      // box-shadow: rgba(0, 0, 0, 0.15) 0px 1px 1px;
+      margin: 10px;
+      transition: all 0.18s;
+
+      &:hover {
+        background: var(--var-card-bg-hover);
+      }
+
+      &:active {
+        background: var(--var-card-bg-active);
+      }
+    }
+  }
+
+  .lightText {
+    opacity: 0.72;
+  }
 }

@@ -8,7 +8,7 @@ export default function Header({coursesData} : {coursesData?: Array<any>}) {
 		<footer className={styles.footerComponent}>
 			<p>
 				Want to contribute your own syllabus? Upload it <a
-			href="https://docs.google.com/forms/d/e/1FAIpQLScx6kpBzIJWUOSbspixLrMWfeVh6C6xHJFfZ_NvEsxSTo4QKg/viewform">
+			href="https://forms.gle/jLnAd8QcGUKRK97T7">
 				here.
 				</a>
 			</p>
